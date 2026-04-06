@@ -72,7 +72,7 @@
               Reset Progress
             </button>
             <p class="shortcut-note">
-              Shortcuts: <kbd>←</kbd> <kbd>→</kbd> move, <kbd>R</kbd> reveal,
+              Shortcuts: <kbd>←</kbd> <kbd>→</kbd> move, <kbd>R</kbd> reveal all,
               <kbd>M</kbd> mastered, <kbd>L</kbd> review later.
             </p>
           </section>
@@ -104,27 +104,21 @@
 
           <div class="action-row">
             <button id="prev-button" type="button">Previous</button>
-            <button id="reveal-button" type="button" class="primary-button">Reveal Answer</button>
+            <button id="reveal-button" type="button" class="primary-button">Reveal All Explanations</button>
             <button id="next-button" type="button">Next</button>
           </div>
 
-          <section id="answer-panel" class="answer-panel hidden" aria-live="polite">
-            <div class="answer-head">
-              <p class="answer-eyebrow">Answer Reveal</p>
-              <div class="status-pills">
-                <button id="mark-mastered-button" class="status-button mastered" type="button">
-                  Mark Mastered
-                </button>
-                <button id="mark-review-button" class="status-button review" type="button">
-                  Review Later
-                </button>
-                <button id="clear-status-button" class="status-button neutral" type="button">
-                  Clear Status
-                </button>
-              </div>
-            </div>
-            <div id="answer-content" class="answer-content"></div>
-          </section>
+          <div class="status-row">
+            <button id="mark-mastered-button" class="status-button mastered" type="button">
+              Mark Mastered
+            </button>
+            <button id="mark-review-button" class="status-button review" type="button">
+              Review Later
+            </button>
+            <button id="clear-status-button" class="status-button neutral" type="button">
+              Clear Status
+            </button>
+          </div>
         </section>
       </main>
     </div>
@@ -133,4 +127,3 @@
     <script src="./app.js"></script>
   </body>
 </html>
-
