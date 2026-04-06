@@ -2,6 +2,7 @@ const state = {
   questions: Array.isArray(window.STAT_QUESTIONS) ? window.STAT_QUESTIONS : [],
   filtered: [],
   index: 0,
+  theme: document.documentElement.dataset.theme === "light" ? "light" : "dark",
   progress: {},
   revealAll: false,
   responses: {},
@@ -23,6 +24,8 @@ const elements = {
   loginPassword: document.getElementById("login-password"),
   loginButton: document.getElementById("login-button"),
   loginError: document.getElementById("login-error"),
+  themeToggle: document.getElementById("theme-toggle"),
+  themeToggleLabel: document.getElementById("theme-toggle-label"),
   totalCount: document.getElementById("total-count"),
   masteredCount: document.getElementById("mastered-count"),
   reviewCount: document.getElementById("review-count"),
@@ -236,6 +239,34 @@ function renderAuth() {
     elements.accountNote.textContent = "Sign in to save question status and answer records.";
     elements.logoutButton.disabled = true;
   }
+}
+
+function applyTheme(theme) {
+  state.theme = theme === "light" ? "light" : "dark";
+  document.documentElement.dataset.theme = state.theme;
+  if (elements.themeToggleLabel) {
+    elements.themeToggleLabel.textContent = state.theme === "dark" ? "Light Mode" : "Dark Mode";
+  }
+  if (elements.themeToggle) {
+    elements.themeToggle.setAttribute(
+      "aria-label",
+      state.theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+    );
+  }
+}
+
+function persistTheme(theme) {
+  try {
+    localStorage.setItem("stats-practice-theme", theme);
+  } catch {
+    // Ignore persistence failures and keep the current session theme.
+  }
+}
+
+function toggleTheme() {
+  const nextTheme = state.theme === "dark" ? "light" : "dark";
+  applyTheme(nextTheme);
+  persistTheme(nextTheme);
 }
 
 function renderStats() {
@@ -831,6 +862,7 @@ async function resetProgress() {
 }
 
 elements.loginForm.addEventListener("submit", handleLogin);
+elements.themeToggle.addEventListener("click", toggleTheme);
 elements.logoutButton.addEventListener("click", () => {
   void handleLogout();
 });
@@ -892,5 +924,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 rebuildRandomOrder();
+applyTheme(state.theme);
 render();
 void loadSession();

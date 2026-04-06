@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,6 +14,18 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("stats-practice-theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            document.documentElement.dataset.theme = savedTheme;
+          }
+        } catch (error) {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -55,7 +67,12 @@
     <div class="page-shell">
       <header class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Statistics Practice</p>
+          <div class="hero-topline">
+            <p class="eyebrow">Statistics Practice</p>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+              <span id="theme-toggle-label">Light Mode</span>
+            </button>
+          </div>
           <h1>Stats Practice Lab</h1>
           <p class="hero-text">
             Built from your compiled exam bank. Choose a question, solve it
