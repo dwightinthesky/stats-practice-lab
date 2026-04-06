@@ -12,10 +12,11 @@ A focused practice website built from a compiled statistics question bank.
 
 ## Local preview
 
-1. Generate the question data:
+1. Generate the question data and deployable files:
 
    ```bash
    python3 scripts/build_questions_data.py
+   python3 scripts/prepare_dist.py
    ```
 
 2. Serve the folder:
@@ -31,12 +32,11 @@ A focused practice website built from a compiled statistics question bank.
 This repo is static. On Cloudflare Pages:
 
 - Framework preset: `None`
-- Build command: leave empty
-- Build output directory: `/`
+- Build command: `python3 scripts/build_questions_data.py && python3 scripts/prepare_dist.py`
+- Build output directory: `dist`
 
 If you prefer Wrangler:
 
 ```bash
-npx wrangler@latest pages deploy . --project-name stats-practice-lab
+npx wrangler@latest pages deploy dist --project-name stats-practice-lab
 ```
-

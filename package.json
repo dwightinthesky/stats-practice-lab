@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "scripts": {
     "build:data": "python3 scripts/build_questions_data.py",
+    "build:dist": "python3 scripts/prepare_dist.py",
+    "build": "python3 scripts/build_questions_data.py && python3 scripts/prepare_dist.py",
     "dev": "python3 -m http.server 8788"
   }
 }
-
