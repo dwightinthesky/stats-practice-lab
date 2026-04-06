@@ -716,19 +716,24 @@ kbd {
 }
 
 .stage-topbar {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 20px;
   align-items: start;
+}
+
+.stage-topbar > div:first-child {
+  max-width: 760px;
 }
 
 .stage-topbar h2 {
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(22px, 2.2vw, 32px);
-  line-height: 1.12;
-  letter-spacing: -0.03em;
+  font-size: clamp(18px, 1.85vw, 26px);
+  line-height: 1.2;
+  letter-spacing: -0.028em;
   font-weight: 400;
+  max-width: 24ch;
 }
 
 /* ─────────────────────────────────────────────
@@ -745,7 +750,7 @@ kbd {
 
 .progress-rail {
   height: 6px;
-  margin: 22px 0 24px;
+  margin: 18px 0 30px;
   border-radius: 999px;
   overflow: hidden;
   background: rgba(167, 139, 250, 0.08);
@@ -765,7 +770,7 @@ kbd {
    QUESTION CARD
 ───────────────────────────────────────────── */
 .question-card {
-  padding: 26px;
+  padding: clamp(24px, 3vw, 38px);
   box-shadow: var(--shadow-soft);
   background: linear-gradient(160deg, rgba(12, 10, 24, 0.98), rgba(14, 14, 22, 0.96));
   border-color: rgba(167, 139, 250, 0.1);
@@ -773,13 +778,19 @@ kbd {
 
 .question-content {
   display: grid;
-  gap: 20px;
+  gap: 30px;
+}
+
+.question-content > * {
+  width: min(100%, 760px);
+  margin-inline: auto;
 }
 
 .question-content p {
   margin: 0;
-  font-size: 17px;
-  line-height: 1.88;
+  font-size: clamp(15px, 1.1vw, 16px);
+  line-height: 1.95;
+  letter-spacing: -0.012em;
 }
 
 .question-content .section-heading {
@@ -791,15 +802,24 @@ kbd {
   color: var(--muted);
 }
 
-.question-content .bullet { padding-left: 18px; text-indent: -18px; }
-.question-intro  { display: grid; gap: 14px; padding: 0 4px; }
-.part-stack      { display: grid; gap: 14px; }
+.question-content .bullet {
+  padding-left: 20px;
+  text-indent: -20px;
+}
+
+.question-intro  {
+  display: grid;
+  gap: 18px;
+  padding: 2px 0 0;
+}
+
+.part-stack      { display: grid; gap: 18px; }
 
 /* ─────────────────────────────────────────────
    PART CARD
 ───────────────────────────────────────────── */
 .part-card {
-  padding: 22px;
+  padding: 24px;
   border-radius: 24px;
   border: 1px solid var(--line);
   background: linear-gradient(160deg, rgba(16, 14, 28, 0.96), rgba(10, 10, 20, 0.98));
@@ -821,7 +841,10 @@ kbd {
   border: 1px solid rgba(167, 139, 250, 0.2);
 }
 
-.part-prompt { display: grid; gap: 10px; }
+.part-prompt {
+  display: grid;
+  gap: 12px;
+}
 
 .part-hint {
   margin: 14px 0 12px;
@@ -972,8 +995,8 @@ kbd {
    FEEDBACK PANEL
 ───────────────────────────────────────────── */
 .feedback-panel {
-  margin-top: 16px;
-  padding: 20px;
+  margin-top: 18px;
+  padding: 22px;
   border-radius: 20px;
   border: 1px solid var(--line);
   background: rgba(10, 10, 20, 0.72);
@@ -1082,8 +1105,12 @@ kbd {
 
   .hero-panel-wide { grid-template-columns: 1fr 1fr; }
 
-  .stage-topbar, .panel-heading,
+  .panel-heading,
   .record-topline, .hero-topline { flex-direction: column; align-items: start; }
+
+  .stage-topbar {
+    grid-template-columns: 1fr;
+  }
 
   .inline-field { grid-template-columns: 1fr; }
 }
