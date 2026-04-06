@@ -28,7 +28,11 @@
 
         <form id="login-form" class="auth-form">
           <label class="field-label" for="login-username">Username</label>
-          <input id="login-username" type="text" autocomplete="username" required />
+          <select id="login-username" autocomplete="username" required>
+            <option value="">Select a user</option>
+            <option value="Howard">Howard</option>
+            <option value="Freya">Freya</option>
+          </select>
 
           <label class="field-label" for="login-password">Password</label>
           <input
@@ -44,7 +48,7 @@
         </form>
 
         <p id="login-error" class="auth-error" hidden></p>
-        <p class="auth-note">Available usernames: Howard, Freya.</p>
+        <p class="auth-note">Choose a saved user, then enter the password.</p>
       </div>
     </div>
 
