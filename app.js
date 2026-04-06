@@ -1,19 +1,39 @@
-const STORAGE_KEY = "stats-practice-lab-progress";
-
 const state = {
   questions: Array.isArray(window.STAT_QUESTIONS) ? window.STAT_QUESTIONS : [],
   filtered: [],
   index: 0,
-  progress: loadProgress(),
+  progress: {},
   revealAll: false,
   responses: {},
-  randomOrder: []
+  randomOrder: [],
+  auth: {
+    user: null,
+    loading: true,
+    error: "",
+    syncTone: "",
+    syncText: "Checking session…"
+  },
+  records: emptyRecords()
 };
 
 const elements = {
+  authOverlay: document.getElementById("auth-overlay"),
+  loginForm: document.getElementById("login-form"),
+  loginUsername: document.getElementById("login-username"),
+  loginPassword: document.getElementById("login-password"),
+  loginButton: document.getElementById("login-button"),
+  loginError: document.getElementById("login-error"),
   totalCount: document.getElementById("total-count"),
   masteredCount: document.getElementById("mastered-count"),
   reviewCount: document.getElementById("review-count"),
+  attemptCount: document.getElementById("attempt-count"),
+  accuracyCount: document.getElementById("accuracy-count"),
+  accountName: document.getElementById("account-name"),
+  accountNote: document.getElementById("account-note"),
+  logoutButton: document.getElementById("logout-button"),
+  syncStatus: document.getElementById("sync-status"),
+  answeredParts: document.getElementById("answered-parts"),
+  recentRecords: document.getElementById("recent-records"),
   modeSelect: document.getElementById("mode-select"),
   jumpInput: document.getElementById("jump-input"),
   jumpButton: document.getElementById("jump-button"),
@@ -34,16 +54,27 @@ const elements = {
   clearStatusButton: document.getElementById("clear-status-button")
 };
 
-function loadProgress() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-  } catch {
-    return {};
-  }
+function emptyRecords() {
+  return {
+    totalAttempts: 0,
+    correctAttempts: 0,
+    accuracy: 0,
+    totalReveals: 0,
+    answeredParts: 0,
+    recent: []
+  };
 }
 
-function saveProgress() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state.progress));
+function cloneData(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function normalizeKeys(keys) {
+  return [...keys].sort().join("|");
+}
+
+function truncate(value, maxLength) {
+  return value.length > maxLength ? `${value.slice(0, maxLength - 1)}…` : value;
 }
 
 function shuffle(array) {
@@ -59,24 +90,62 @@ function rebuildRandomOrder() {
   state.randomOrder = shuffle(state.questions.map((question) => question.id));
 }
 
-function questionStatus(id) {
-  return state.progress[id] || "none";
+function setSyncStatus(text, tone = "") {
+  state.auth.syncText = text;
+  state.auth.syncTone = tone;
 }
 
-function setQuestionStatus(status) {
-  const question = currentQuestion();
-  if (!question) return;
-  if (status === "none") {
-    delete state.progress[question.id];
-  } else {
-    state.progress[question.id] = status;
-  }
-  saveProgress();
-  render();
+function clearUserState() {
+  state.progress = {};
+  state.responses = {};
+  state.records = emptyRecords();
+  state.revealAll = false;
 }
 
 function currentQuestion() {
   return state.filtered[state.index] || null;
+}
+
+function questionStatus(id) {
+  return state.progress[id] || "none";
+}
+
+function findQuestion(questionId) {
+  return state.questions.find((question) => question.id === questionId) || null;
+}
+
+function findPart(questionId, partId) {
+  const question = findQuestion(questionId);
+  return question?.parts.find((part) => part.id === partId) || null;
+}
+
+function partHasInteractiveChoice(part) {
+  return part.choices.length > 0 && part.answerKeys.length > 0;
+}
+
+function isMultiSelect(part) {
+  return part.answerKeys.length > 1;
+}
+
+function responseState(questionId, partId) {
+  if (!state.responses[questionId]) {
+    state.responses[questionId] = {};
+  }
+  if (!state.responses[questionId][partId]) {
+    state.responses[questionId][partId] = {
+      selectedKeys: [],
+      checked: false,
+      revealed: false
+    };
+  }
+  return state.responses[questionId][partId];
+}
+
+function shouldShowFeedback(part, response) {
+  if (state.revealAll) return true;
+  if (partHasInteractiveChoice(part) && response.checked) return true;
+  if (!partHasInteractiveChoice(part) && response.revealed) return true;
+  return false;
 }
 
 function questionSearchText(question) {
@@ -115,15 +184,67 @@ function applyFilters() {
   }
 }
 
+function formatAccuracy(value) {
+  return `${Math.round((value || 0) * 100)}%`;
+}
+
+function formatTimestamp(value) {
+  if (!value) return "";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat(undefined, {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit"
+  }).format(date);
+}
+
+function describeRecord(record) {
+  const question = findQuestion(record.questionId);
+  const part = question?.parts.find((candidate) => candidate.id === record.partId);
+  return {
+    title: question ? `Q${question.id} · ${truncate(question.title, 34)}` : `Q${record.questionId}`,
+    part: part ? part.label : record.partId
+  };
+}
+
+function renderAuth() {
+  const signedIn = Boolean(state.auth.user);
+  elements.authOverlay.classList.toggle("hidden", signedIn);
+  elements.loginButton.disabled = state.auth.loading;
+  elements.loginUsername.disabled = state.auth.loading;
+  elements.loginPassword.disabled = state.auth.loading;
+
+  if (state.auth.error) {
+    elements.loginError.hidden = false;
+    elements.loginError.textContent = state.auth.error;
+  } else {
+    elements.loginError.hidden = true;
+    elements.loginError.textContent = "";
+  }
+
+  elements.syncStatus.textContent = state.auth.syncText;
+  elements.syncStatus.className = `sync-pill${state.auth.syncTone ? ` ${state.auth.syncTone}` : ""}`;
+
+  if (signedIn) {
+    elements.accountName.textContent = state.auth.user.displayName;
+    elements.accountNote.textContent = "Your mastery markers and answer history are syncing automatically.";
+    elements.logoutButton.disabled = false;
+  } else {
+    elements.accountName.textContent = "Not signed in";
+    elements.accountNote.textContent = "Sign in to save question status and answer records.";
+    elements.logoutButton.disabled = true;
+  }
+}
+
 function renderStats() {
   const statuses = Object.values(state.progress);
   elements.totalCount.textContent = String(state.questions.length);
   elements.masteredCount.textContent = String(statuses.filter((value) => value === "mastered").length);
   elements.reviewCount.textContent = String(statuses.filter((value) => value === "review").length);
-}
-
-function truncate(value, maxLength) {
-  return value.length > maxLength ? `${value.slice(0, maxLength - 1)}…` : value;
+  elements.attemptCount.textContent = String(state.records.totalAttempts || 0);
+  elements.accuracyCount.textContent = formatAccuracy(state.records.accuracy);
 }
 
 function renderQuestionList() {
@@ -174,68 +295,23 @@ function renderLines(container, lines, extraClass = "") {
   });
 }
 
-function responseState(questionId, partId) {
-  if (!state.responses[questionId]) {
-    state.responses[questionId] = {};
+function dedupeLines(lines) {
+  const compact = [];
+  for (const line of lines) {
+    if (!line) {
+      if (compact.length && compact[compact.length - 1] !== "") {
+        compact.push("");
+      }
+      continue;
+    }
+    if (compact[compact.length - 1] === line) {
+      continue;
+    }
+    compact.push(line);
   }
-  if (!state.responses[questionId][partId]) {
-    state.responses[questionId][partId] = {
-      selectedKeys: [],
-      checked: false,
-      revealed: false
-    };
-  }
-  return state.responses[questionId][partId];
-}
-
-function setSingleChoice(questionId, partId, key) {
-  const response = responseState(questionId, partId);
-  response.selectedKeys = [key];
-  response.checked = true;
-  renderQuestion();
-}
-
-function toggleMultiChoice(questionId, partId, key) {
-  const response = responseState(questionId, partId);
-  const next = new Set(response.selectedKeys);
-  if (next.has(key)) {
-    next.delete(key);
-  } else {
-    next.add(key);
-  }
-  response.selectedKeys = [...next].sort();
-  renderQuestion();
-}
-
-function checkMultiChoice(questionId, partId) {
-  const response = responseState(questionId, partId);
-  response.checked = true;
-  renderQuestion();
-}
-
-function revealWorkedAnswer(questionId, partId) {
-  const response = responseState(questionId, partId);
-  response.revealed = true;
-  renderQuestion();
-}
-
-function normalizeKeys(keys) {
-  return [...keys].sort().join("|");
-}
-
-function partHasInteractiveChoice(part) {
-  return part.choices.length > 0 && part.answerKeys.length > 0;
-}
-
-function isMultiSelect(part) {
-  return part.answerKeys.length > 1;
-}
-
-function shouldShowFeedback(part, response) {
-  if (state.revealAll) return true;
-  if (partHasInteractiveChoice(part) && response.checked) return true;
-  if (!partHasInteractiveChoice(part) && response.revealed) return true;
-  return false;
+  while (compact[0] === "") compact.shift();
+  while (compact[compact.length - 1] === "") compact.pop();
+  return compact;
 }
 
 function renderFeedback(part, response) {
@@ -279,25 +355,6 @@ function renderFeedback(part, response) {
   return feedback;
 }
 
-function dedupeLines(lines) {
-  const compact = [];
-  for (const line of lines) {
-    if (!line) {
-      if (compact.length && compact[compact.length - 1] !== "") {
-        compact.push("");
-      }
-      continue;
-    }
-    if (compact[compact.length - 1] === line) {
-      continue;
-    }
-    compact.push(line);
-  }
-  while (compact[0] === "") compact.shift();
-  while (compact[compact.length - 1] === "") compact.pop();
-  return compact;
-}
-
 function renderChoiceButtons(question, part, response) {
   const wrapper = document.createElement("div");
   wrapper.className = "choice-grid";
@@ -319,7 +376,9 @@ function renderChoiceButtons(question, part, response) {
     if (isMultiSelect(part)) {
       button.addEventListener("click", () => toggleMultiChoice(question.id, part.id, choice.key));
     } else {
-      button.addEventListener("click", () => setSingleChoice(question.id, part.id, choice.key));
+      button.addEventListener("click", () => {
+        void setSingleChoice(question.id, part.id, choice.key);
+      });
     }
 
     const key = document.createElement("span");
@@ -356,17 +415,12 @@ function renderPart(question, part) {
   }
 
   if (part.choices.length) {
-    if (isMultiSelect(part)) {
-      const hint = document.createElement("p");
-      hint.className = "part-hint";
-      hint.textContent = "Select all that apply, then check your selection.";
-      card.appendChild(hint);
-    } else {
-      const hint = document.createElement("p");
-      hint.className = "part-hint";
-      hint.textContent = "Choose one option to get immediate feedback.";
-      card.appendChild(hint);
-    }
+    const hint = document.createElement("p");
+    hint.className = "part-hint";
+    hint.textContent = isMultiSelect(part)
+      ? "Select all that apply, then check your selection."
+      : "Choose one option to get immediate feedback.";
+    card.appendChild(hint);
 
     card.appendChild(renderChoiceButtons(question, part, response));
 
@@ -379,9 +433,10 @@ function renderPart(question, part) {
       checkButton.className = "mini-button primary";
       checkButton.textContent = "Check Selection";
       checkButton.disabled = response.selectedKeys.length === 0;
-      checkButton.addEventListener("click", () => checkMultiChoice(question.id, part.id));
+      checkButton.addEventListener("click", () => {
+        void checkMultiChoice(question.id, part.id);
+      });
       toolbar.appendChild(checkButton);
-
       card.appendChild(toolbar);
     }
   } else if (!shouldShowFeedback(part, response) && (part.answerDetails.length || part.explanation.length)) {
@@ -391,7 +446,9 @@ function renderPart(question, part) {
     revealButton.type = "button";
     revealButton.className = "mini-button";
     revealButton.textContent = "Show Worked Answer";
-    revealButton.addEventListener("click", () => revealWorkedAnswer(question.id, part.id));
+    revealButton.addEventListener("click", () => {
+      void revealWorkedAnswer(question.id, part.id);
+    });
     toolbar.appendChild(revealButton);
     card.appendChild(toolbar);
   }
@@ -433,11 +490,194 @@ function renderQuestion() {
   elements.questionContent.appendChild(parts);
 }
 
+function renderRecords() {
+  elements.answeredParts.textContent = `${state.records.answeredParts || 0} answered`;
+  elements.recentRecords.innerHTML = "";
+
+  if (!state.auth.user) {
+    const empty = document.createElement("p");
+    empty.className = "empty-records";
+    empty.textContent = "Sign in to load your activity history.";
+    elements.recentRecords.appendChild(empty);
+    return;
+  }
+
+  if (!state.records.recent.length) {
+    const empty = document.createElement("p");
+    empty.className = "empty-records";
+    empty.textContent = "No saved answer history yet. Your checked answers and reveals will show up here.";
+    elements.recentRecords.appendChild(empty);
+    return;
+  }
+
+  state.records.recent.forEach((record) => {
+    const item = document.createElement("article");
+    item.className = "record-item";
+
+    const description = describeRecord(record);
+    const top = document.createElement("div");
+    top.className = "record-topline";
+
+    const title = document.createElement("strong");
+    title.textContent = description.title;
+
+    const badge = document.createElement("span");
+    let badgeLabel = "Viewed";
+    let badgeTone = "revealed";
+    if (record.checked) {
+      badgeLabel = record.isCorrect ? "Correct" : "Incorrect";
+      badgeTone = record.isCorrect ? "correct" : "incorrect";
+    }
+    badge.className = `record-badge ${badgeTone}`;
+    badge.textContent = badgeLabel;
+
+    top.append(title, badge);
+
+    const meta = document.createElement("p");
+    meta.className = "record-meta";
+    meta.textContent = `${description.part} · ${record.selectedKeys?.length ? `Answer ${record.selectedKeys.join(", ")}` : "Worked answer reveal"}`;
+
+    const time = document.createElement("p");
+    time.className = "record-timestamp";
+    time.textContent = formatTimestamp(record.createdAt);
+
+    item.append(top, meta, time);
+    elements.recentRecords.appendChild(item);
+  });
+}
+
 function render() {
   applyFilters();
+  renderAuth();
   renderStats();
   renderQuestionList();
+  renderRecords();
   renderQuestion();
+}
+
+function applySnapshot(payload) {
+  state.auth.user = payload.user || null;
+  state.progress = payload.progress || {};
+  state.responses = payload.responses || {};
+  state.records = payload.records || emptyRecords();
+}
+
+async function apiFetch(path, options = {}) {
+  const config = {
+    method: options.method || "GET",
+    headers: {
+      Accept: "application/json"
+    },
+    credentials: "same-origin"
+  };
+
+  if (options.body !== undefined) {
+    config.headers["Content-Type"] = "application/json";
+    config.body = JSON.stringify(options.body);
+  }
+
+  const response = await fetch(path, config);
+  let data = {};
+  try {
+    data = await response.json();
+  } catch {
+    data = {};
+  }
+
+  if (response.status === 401 && options.authenticated !== false) {
+    state.auth.user = null;
+    clearUserState();
+    setSyncStatus("Session expired. Sign in again.", "error");
+    render();
+    throw new Error("Please sign in again.");
+  }
+
+  if (!response.ok) {
+    throw new Error(data.error || "Request failed.");
+  }
+
+  return data;
+}
+
+async function loadSession() {
+  state.auth.loading = true;
+  state.auth.error = "";
+  setSyncStatus("Checking session…");
+  render();
+
+  try {
+    const response = await fetch("/api/state", {
+      method: "GET",
+      headers: { Accept: "application/json" },
+      credentials: "same-origin"
+    });
+
+    if (response.status === 401) {
+      state.auth.user = null;
+      clearUserState();
+      setSyncStatus("Sign in to sync progress.");
+      return;
+    }
+
+    const data = await response.json();
+    applySnapshot(data);
+    setSyncStatus("Progress synced", "success");
+  } catch {
+    state.auth.user = null;
+    clearUserState();
+    setSyncStatus("Could not reach sync service.", "error");
+  } finally {
+    state.auth.loading = false;
+    render();
+  }
+}
+
+async function handleLogin(event) {
+  event.preventDefault();
+  state.auth.loading = true;
+  state.auth.error = "";
+  setSyncStatus("Signing in…");
+  renderAuth();
+
+  try {
+    const data = await apiFetch("/api/login", {
+      method: "POST",
+      authenticated: false,
+      body: {
+        username: elements.loginUsername.value.trim(),
+        password: elements.loginPassword.value
+      }
+    });
+
+    elements.loginForm.reset();
+    applySnapshot(data);
+    setSyncStatus("Signed in and synced", "success");
+  } catch (error) {
+    state.auth.error = error.message;
+    setSyncStatus("Sign-in failed", "error");
+  } finally {
+    state.auth.loading = false;
+    render();
+  }
+}
+
+async function handleLogout() {
+  state.auth.loading = true;
+  setSyncStatus("Signing out…");
+  renderAuth();
+
+  try {
+    await apiFetch("/api/logout", { method: "POST" });
+  } catch {
+    // If logout fails remotely, we still clear the UI to avoid a stuck session.
+  } finally {
+    state.auth.loading = false;
+    state.auth.user = null;
+    state.auth.error = "";
+    clearUserState();
+    setSyncStatus("Signed out");
+    render();
+  }
 }
 
 function jumpToQuestion() {
@@ -457,6 +697,143 @@ function moveBy(delta) {
   state.revealAll = false;
   render();
 }
+
+async function syncQuestionStatus(questionId, status) {
+  const previous = cloneData(state.progress);
+
+  if (status === "none") {
+    delete state.progress[questionId];
+  } else {
+    state.progress[questionId] = status;
+  }
+
+  setSyncStatus("Saving status…");
+  render();
+
+  try {
+    await apiFetch("/api/question-status", {
+      method: "POST",
+      body: { questionId, status }
+    });
+    setSyncStatus("Status saved", "success");
+    render();
+  } catch (error) {
+    state.progress = previous;
+    setSyncStatus(error.message, "error");
+    render();
+  }
+}
+
+function setQuestionStatus(status) {
+  const question = currentQuestion();
+  if (!question || !state.auth.user) return;
+  void syncQuestionStatus(question.id, status);
+}
+
+async function persistPartState(questionId, partId, previousState) {
+  const part = findPart(questionId, partId);
+  const response = responseState(questionId, partId);
+  const payload = {
+    questionId,
+    partId,
+    selectedKeys: response.selectedKeys,
+    checked: Boolean(response.checked),
+    revealed: Boolean(response.revealed),
+    isCorrect:
+      part && partHasInteractiveChoice(part) && response.checked
+        ? normalizeKeys(response.selectedKeys) === normalizeKeys(part.answerKeys)
+        : null
+  };
+
+  setSyncStatus("Saving answer…");
+  renderQuestion();
+
+  try {
+    const data = await apiFetch("/api/part-state", {
+      method: "POST",
+      body: payload
+    });
+
+    if (data.records) {
+      state.records = data.records;
+    }
+    setSyncStatus("Answer saved", "success");
+    render();
+  } catch (error) {
+    state.responses[questionId][partId] = previousState;
+    setSyncStatus(error.message, "error");
+    render();
+  }
+}
+
+async function setSingleChoice(questionId, partId, key) {
+  if (!state.auth.user) return;
+  const previous = cloneData(responseState(questionId, partId));
+  const response = responseState(questionId, partId);
+  response.selectedKeys = [key];
+  response.checked = true;
+  response.revealed = false;
+  renderQuestion();
+  await persistPartState(questionId, partId, previous);
+}
+
+function toggleMultiChoice(questionId, partId, key) {
+  const response = responseState(questionId, partId);
+  const next = new Set(response.selectedKeys);
+  if (next.has(key)) {
+    next.delete(key);
+  } else {
+    next.add(key);
+  }
+  response.selectedKeys = [...next].sort();
+  response.checked = false;
+  renderQuestion();
+}
+
+async function checkMultiChoice(questionId, partId) {
+  if (!state.auth.user) return;
+  const previous = cloneData(responseState(questionId, partId));
+  const response = responseState(questionId, partId);
+  response.checked = true;
+  response.revealed = false;
+  renderQuestion();
+  await persistPartState(questionId, partId, previous);
+}
+
+async function revealWorkedAnswer(questionId, partId) {
+  if (!state.auth.user) return;
+  const previous = cloneData(responseState(questionId, partId));
+  const response = responseState(questionId, partId);
+  response.revealed = true;
+  renderQuestion();
+  await persistPartState(questionId, partId, previous);
+}
+
+async function resetProgress() {
+  if (!state.auth.user) return;
+  const confirmed = window.confirm("Reset all mastered and review markers for this user?");
+  if (!confirmed) return;
+
+  const previous = cloneData(state.progress);
+  state.progress = {};
+  setSyncStatus("Resetting progress…");
+  render();
+
+  try {
+    await apiFetch("/api/reset-progress", { method: "POST" });
+    setSyncStatus("Progress reset", "success");
+    render();
+  } catch (error) {
+    state.progress = previous;
+    setSyncStatus(error.message, "error");
+    render();
+  }
+}
+
+elements.loginForm.addEventListener("submit", handleLogin);
+elements.logoutButton.addEventListener("click", () => {
+  void handleLogout();
+});
 
 elements.modeSelect.addEventListener("change", () => {
   if (elements.modeSelect.value === "random") {
@@ -485,11 +862,7 @@ elements.randomButton.addEventListener("click", () => {
 });
 
 elements.resetProgressButton.addEventListener("click", () => {
-  const confirmed = window.confirm("Reset all mastered / review markers?");
-  if (!confirmed) return;
-  state.progress = {};
-  saveProgress();
-  render();
+  void resetProgress();
 });
 
 elements.prevButton.addEventListener("click", () => moveBy(-1));
@@ -506,6 +879,7 @@ elements.clearStatusButton.addEventListener("click", () => setQuestionStatus("no
 document.addEventListener("keydown", (event) => {
   const tag = document.activeElement?.tagName?.toLowerCase();
   if (tag === "input" || tag === "select" || tag === "textarea") return;
+  if (!state.auth.user) return;
 
   if (event.key === "ArrowLeft") moveBy(-1);
   if (event.key === "ArrowRight") moveBy(1);
@@ -519,3 +893,4 @@ document.addEventListener("keydown", (event) => {
 
 rebuildRandomOrder();
 render();
+void loadSession();

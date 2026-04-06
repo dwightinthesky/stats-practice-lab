@@ -17,17 +17,49 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <div id="auth-overlay" class="auth-overlay">
+      <div class="auth-card">
+        <p class="eyebrow">Member Login</p>
+        <h2>Pick up where you left off</h2>
+        <p class="auth-text">
+          Sign in to sync your answers, mastery markers, and recent activity
+          across devices.
+        </p>
+
+        <form id="login-form" class="auth-form">
+          <label class="field-label" for="login-username">Username</label>
+          <input id="login-username" type="text" autocomplete="username" required />
+
+          <label class="field-label" for="login-password">Password</label>
+          <input
+            id="login-password"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+
+          <button id="login-button" class="primary-button auth-submit" type="submit">
+            Sign In
+          </button>
+        </form>
+
+        <p id="login-error" class="auth-error" hidden></p>
+        <p class="auth-note">Available usernames: Howard, Freya.</p>
+      </div>
+    </div>
+
     <div class="page-shell">
       <header class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Statistics Practice</p>
           <h1>Stats Practice Lab</h1>
           <p class="hero-text">
-            Built from your compiled exam bank. Pick a mode, solve first on
-            your own, then reveal the answer and track what still needs review.
+            Built from your compiled exam bank. Choose a question, solve it
+            first, then get immediate feedback and a saved history of your
+            progress.
           </p>
         </div>
-        <div class="hero-panel">
+        <div class="hero-panel hero-panel-wide">
           <div class="stat-card">
             <span class="stat-label">Question Bank</span>
             <strong id="total-count">0</strong>
@@ -40,11 +72,33 @@
             <span class="stat-label">Review Later</span>
             <strong id="review-count">0</strong>
           </div>
+          <div class="stat-card">
+            <span class="stat-label">Attempts</span>
+            <strong id="attempt-count">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Accuracy</span>
+            <strong id="accuracy-count">0%</strong>
+          </div>
         </div>
       </header>
 
       <main class="workspace">
         <aside class="control-panel">
+          <section class="panel-block">
+            <div class="panel-heading">
+              <h2>Account</h2>
+              <span id="sync-status" class="sync-pill">Checking session…</span>
+            </div>
+            <p id="account-name" class="account-name">Not signed in</p>
+            <p id="account-note" class="account-note">
+              Sign in to save question status and answer records.
+            </p>
+            <button id="logout-button" class="ghost-button" type="button" disabled>
+              Log Out
+            </button>
+          </section>
+
           <section class="panel-block">
             <h2>Practice Flow</h2>
             <label class="field-label" for="mode-select">Mode</label>
@@ -69,7 +123,7 @@
             <h2>Session Tools</h2>
             <button id="random-button" class="ghost-button" type="button">Random Question</button>
             <button id="reset-progress-button" class="ghost-button danger" type="button">
-              Reset Progress
+              Reset Progress Status
             </button>
             <p class="shortcut-note">
               Shortcuts: <kbd>←</kbd> <kbd>→</kbd> move, <kbd>R</kbd> reveal all,
@@ -80,6 +134,16 @@
           <section class="panel-block">
             <h2>Question List</h2>
             <div id="question-list" class="question-list"></div>
+          </section>
+
+          <section class="panel-block">
+            <div class="panel-heading">
+              <h2>Recent Activity</h2>
+              <span id="answered-parts" class="muted-chip">0 answered</span>
+            </div>
+            <div id="recent-records" class="record-list">
+              <p class="empty-records">Sign in to load your activity history.</p>
+            </div>
           </section>
         </aside>
 
@@ -104,7 +168,9 @@
 
           <div class="action-row">
             <button id="prev-button" type="button">Previous</button>
-            <button id="reveal-button" type="button" class="primary-button">Reveal All Explanations</button>
+            <button id="reveal-button" type="button" class="primary-button">
+              Reveal All Explanations
+            </button>
             <button id="next-button" type="button">Next</button>
           </div>
 
