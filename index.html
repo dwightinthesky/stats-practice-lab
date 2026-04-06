@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stats Practice Lab</title>
+    <meta
+      name="description"
+      content="A clean, high-focus practice website for working through a statistics question bank."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,600&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Statistics Practice</p>
+          <h1>Stats Practice Lab</h1>
+          <p class="hero-text">
+            Built from your compiled exam bank. Pick a mode, solve first on
+            your own, then reveal the answer and track what still needs review.
+          </p>
+        </div>
+        <div class="hero-panel">
+          <div class="stat-card">
+            <span class="stat-label">Question Bank</span>
+            <strong id="total-count">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Mastered</span>
+            <strong id="mastered-count">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Review Later</span>
+            <strong id="review-count">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="control-panel">
+          <section class="panel-block">
+            <h2>Practice Flow</h2>
+            <label class="field-label" for="mode-select">Mode</label>
+            <select id="mode-select">
+              <option value="sequence">Sequential</option>
+              <option value="random">Random</option>
+              <option value="review">Review Later Only</option>
+              <option value="mastered">Mastered Only</option>
+            </select>
+
+            <label class="field-label" for="jump-input">Jump to question</label>
+            <div class="inline-field">
+              <input id="jump-input" type="number" min="1" placeholder="e.g. 12" />
+              <button id="jump-button" type="button">Go</button>
+            </div>
+
+            <label class="field-label" for="search-input">Search title</label>
+            <input id="search-input" type="search" placeholder="confidence interval, Poisson..." />
+          </section>
+
+          <section class="panel-block">
+            <h2>Session Tools</h2>
+            <button id="random-button" class="ghost-button" type="button">Random Question</button>
+            <button id="reset-progress-button" class="ghost-button danger" type="button">
+              Reset Progress
+            </button>
+            <p class="shortcut-note">
+              Shortcuts: <kbd>←</kbd> <kbd>→</kbd> move, <kbd>R</kbd> reveal,
+              <kbd>M</kbd> mastered, <kbd>L</kbd> review later.
+            </p>
+          </section>
+
+          <section class="panel-block">
+            <h2>Question List</h2>
+            <div id="question-list" class="question-list"></div>
+          </section>
+        </aside>
+
+        <section class="practice-stage">
+          <div class="stage-topbar">
+            <div>
+              <p id="current-badge" class="current-badge">Question 1</p>
+              <h2 id="current-title">Loading...</h2>
+            </div>
+            <div class="progress-chip">
+              <span id="progress-text">0 / 0</span>
+            </div>
+          </div>
+
+          <div class="progress-rail">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+
+          <article class="question-card">
+            <div id="question-content" class="question-content"></div>
+          </article>
+
+          <div class="action-row">
+            <button id="prev-button" type="button">Previous</button>
+            <button id="reveal-button" type="button" class="primary-button">Reveal Answer</button>
+            <button id="next-button" type="button">Next</button>
+          </div>
+
+          <section id="answer-panel" class="answer-panel hidden" aria-live="polite">
+            <div class="answer-head">
+              <p class="answer-eyebrow">Answer Reveal</p>
+              <div class="status-pills">
+                <button id="mark-mastered-button" class="status-button mastered" type="button">
+                  Mark Mastered
+                </button>
+                <button id="mark-review-button" class="status-button review" type="button">
+                  Review Later
+                </button>
+                <button id="clear-status-button" class="status-button neutral" type="button">
+                  Clear Status
+                </button>
+              </div>
+            </div>
+            <div id="answer-content" class="answer-content"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="./questions.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
+

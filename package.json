@@ -1,0 +1,10 @@
+{
+  "name": "stats-practice-lab",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build:data": "python3 scripts/build_questions_data.py",
+    "dev": "python3 -m http.server 8788"
+  }
+}
+
