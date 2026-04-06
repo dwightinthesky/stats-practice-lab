@@ -297,7 +297,6 @@ async function updatePartState(request, env, session) {
   const revealed = Boolean(body.revealed);
   const isCorrect =
     body.isCorrect === null || body.isCorrect === undefined ? null : Boolean(body.isCorrect);
-  const attemptIncrement = checked || revealed ? 1 : 0;
 
   if (!Number.isInteger(questionId) || questionId <= 0) {
     return jsonResponse({ error: "A valid questionId is required." }, 400);
@@ -316,16 +315,14 @@ async function updatePartState(request, env, session) {
         checked,
         revealed,
         is_correct,
-        attempts,
         updated_at
       )
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
       ON CONFLICT(username, question_id, part_id) DO UPDATE SET
         selected_keys = excluded.selected_keys,
         checked = excluded.checked,
         revealed = excluded.revealed,
         is_correct = excluded.is_correct,
-        attempts = part_state.attempts + excluded.attempts,
         updated_at = excluded.updated_at`
   )
     .bind(
@@ -336,37 +333,9 @@ async function updatePartState(request, env, session) {
       checked ? 1 : 0,
       revealed ? 1 : 0,
       isCorrect === null ? null : isCorrect ? 1 : 0,
-      attemptIncrement,
       nowIso()
     )
     .run();
-
-  if (attemptIncrement) {
-    await env.DB.prepare(
-      `INSERT INTO answer_records (
-          username,
-          question_id,
-          part_id,
-          selected_keys,
-          checked,
-          revealed,
-          is_correct,
-          created_at
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
-    )
-      .bind(
-        session.username,
-        questionId,
-        partId,
-        JSON.stringify(selectedKeys),
-        checked ? 1 : 0,
-        revealed ? 1 : 0,
-        isCorrect === null ? null : isCorrect ? 1 : 0,
-        nowIso()
-      )
-      .run();
-  }
 
   const records = await buildRecords(env, session.username);
   return jsonResponse({ ok: true, records });
@@ -441,10 +410,10 @@ function safeJsonArray(value) {
 async function buildRecords(env, username) {
   const summaryResult = await env.DB.prepare(
     `SELECT
-       COUNT(*) AS total_attempts,
+       COALESCE(SUM(CASE WHEN checked = 1 THEN 1 ELSE 0 END), 0) AS total_attempts,
        COALESCE(SUM(CASE WHEN checked = 1 AND is_correct = 1 THEN 1 ELSE 0 END), 0) AS correct_attempts,
        COALESCE(SUM(CASE WHEN revealed = 1 THEN 1 ELSE 0 END), 0) AS total_reveals
-     FROM answer_records
+     FROM part_state
      WHERE username = ?`
   )
     .bind(username)
@@ -466,10 +435,11 @@ async function buildRecords(env, username) {
        checked,
        revealed,
        is_correct,
-       created_at
-     FROM answer_records
+       updated_at
+     FROM part_state
      WHERE username = ?
-     ORDER BY id DESC
+     AND (checked = 1 OR revealed = 1)
+     ORDER BY updated_at DESC
      LIMIT 12`
   )
     .bind(username)
@@ -493,7 +463,7 @@ async function buildRecords(env, username) {
       checked: Boolean(row.checked),
       revealed: Boolean(row.revealed),
       isCorrect: row.is_correct === null ? null : Boolean(row.is_correct),
-      createdAt: row.created_at
+      createdAt: row.updated_at
     }))
   };
 }

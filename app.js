@@ -232,11 +232,11 @@ function renderAuth() {
 
   if (signedIn) {
     elements.accountName.textContent = state.auth.user.displayName;
-    elements.accountNote.textContent = "Your mastery markers and answer history are syncing automatically.";
+    elements.accountNote.textContent = "Your mastery markers and latest answer state sync automatically.";
     elements.logoutButton.disabled = false;
   } else {
     elements.accountName.textContent = "Not signed in";
-    elements.accountNote.textContent = "Sign in to save question status and answer records.";
+    elements.accountNote.textContent = "Sign in to save question status and your latest answer state.";
     elements.logoutButton.disabled = true;
   }
 }
@@ -536,7 +536,7 @@ function renderRecords() {
   if (!state.records.recent.length) {
     const empty = document.createElement("p");
     empty.className = "empty-records";
-    empty.textContent = "No saved answer history yet. Your checked answers and reveals will show up here.";
+    empty.textContent = "No saved activity yet. Your latest checked answers and reveals will show up here.";
     elements.recentRecords.appendChild(empty);
     return;
   }
