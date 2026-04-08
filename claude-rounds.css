@@ -539,3 +539,19 @@ html[data-theme="dark"] body {
     radial-gradient(circle at 12% 0%, rgba(210, 138, 101, 0.08), transparent 28%),
     linear-gradient(180deg, #191410 0%, #130f0c 100%);
 }
+
+/* ROUND 27 — Quiet numerics and labels */
+.eyebrow,
+.current-badge,
+.field-label,
+.stat-label {
+  color: color-mix(in srgb, var(--muted) 88%, white 12%);
+}
+
+.stat-label {
+  font-size: 12px;
+}
+
+.stat-card strong {
+  letter-spacing: -0.05em;
+}
