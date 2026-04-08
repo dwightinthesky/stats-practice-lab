@@ -555,3 +555,19 @@ html[data-theme="dark"] body {
 .stat-card strong {
   letter-spacing: -0.05em;
 }
+
+/* ROUND 28 — Controls feel less mechanical */
+.inline-field {
+  gap: 8px;
+}
+
+#jump-button {
+  width: auto;
+  white-space: nowrap;
+}
+
+#mode-select,
+#search-input,
+#jump-input {
+  font-size: 14px;
+}
