@@ -274,3 +274,23 @@ html[data-theme="dark"] .practice-stage {
   background: transparent;
   color: var(--muted);
 }
+
+/* ROUND 12 — Claude answer choices */
+.choice-grid {
+  gap: 12px;
+}
+
+.choice-button {
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: rgba(255, 252, 247, 0.92);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .choice-button {
+  background: rgba(42, 35, 29, 0.92);
+}
+
+.choice-button::before {
+  display: none;
+}
