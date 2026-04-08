@@ -522,3 +522,20 @@ html[data-theme="light"] .hero-copy::before,
 html[data-theme="light"] .hero-copy::after {
   opacity: 0.45;
 }
+
+/* ROUND 26 — Dark theme graphite polish */
+html[data-theme="dark"] {
+  --bg: #17120f;
+  --paper: rgba(38, 31, 26, 0.82);
+  --paper-strong: rgba(42, 35, 30, 0.96);
+  --ink: #f4ede4;
+  --muted: #b9ab9c;
+  --line: rgba(244, 237, 228, 0.08);
+  --line-strong: rgba(244, 237, 228, 0.16);
+}
+
+html[data-theme="dark"] body {
+  background-image:
+    radial-gradient(circle at 12% 0%, rgba(210, 138, 101, 0.08), transparent 28%),
+    linear-gradient(180deg, #191410 0%, #130f0c 100%);
+}
