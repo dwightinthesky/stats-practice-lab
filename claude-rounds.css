@@ -427,3 +427,21 @@ html[data-theme="dark"] .feedback-panel {
   font-size: 15px;
   line-height: 1.75;
 }
+
+/* ROUND 21 — Progress and motion */
+.progress-rail {
+  height: 4px;
+  background: rgba(194, 118, 84, 0.10);
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #d28a65, #bb6a49);
+  box-shadow: none;
+}
+
+button,
+.choice-button,
+.primary-button,
+.mini-button {
+  transition-duration: 140ms;
+}
