@@ -65,47 +65,54 @@
       </div>
     </div>
 
-    <div class="page-shell redesign-shell">
-      <header class="masthead">
-        <div class="masthead-copy">
-          <div class="hero-topline">
-            <p class="eyebrow">Statistics Practice</p>
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
-              <span id="theme-toggle-label">Light Mode</span>
-            </button>
-          </div>
+    <div class="page-shell claude-shell">
+      <header class="app-topbar">
+        <div class="app-branding">
+          <p class="eyebrow">Statistics Practice</p>
           <h1>Stats Practice Lab</h1>
-          <p class="hero-text">
-            A quieter workspace for working through your compiled statistics
-            bank with focus, feedback, and saved progress.
-          </p>
         </div>
-        <div class="masthead-stats hero-panel hero-panel-wide">
-          <div class="stat-card">
-            <span class="stat-label">Question Bank</span>
-            <strong id="total-count">0</strong>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label">Mastered</span>
-            <strong id="mastered-count">0</strong>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label">Review Later</span>
-            <strong id="review-count">0</strong>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label">Checked Parts</span>
-            <strong id="attempt-count">0</strong>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label">Accuracy</span>
-            <strong id="accuracy-count">0%</strong>
-          </div>
+        <div class="app-top-actions">
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+            <span id="theme-toggle-label">Light Mode</span>
+          </button>
         </div>
       </header>
 
-      <main class="workspace workspace-reboot">
-        <aside class="control-panel docs-sidebar">
+      <main class="app-layout">
+        <aside class="control-panel claude-sidebar">
+          <section class="panel-block overview-block">
+            <div class="panel-heading">
+              <h2>Workspace</h2>
+              <span class="muted-chip">Claude mode</span>
+            </div>
+            <p class="hero-text">
+              Work through one problem at a time with a cleaner reading rhythm,
+              persistent progress, and immediate feedback.
+            </p>
+            <div class="overview-stats hero-panel hero-panel-wide">
+              <div class="stat-card">
+                <span class="stat-label">Question Bank</span>
+                <strong id="total-count">0</strong>
+              </div>
+              <div class="stat-card">
+                <span class="stat-label">Mastered</span>
+                <strong id="mastered-count">0</strong>
+              </div>
+              <div class="stat-card">
+                <span class="stat-label">Review Later</span>
+                <strong id="review-count">0</strong>
+              </div>
+              <div class="stat-card">
+                <span class="stat-label">Checked Parts</span>
+                <strong id="attempt-count">0</strong>
+              </div>
+              <div class="stat-card">
+                <span class="stat-label">Accuracy</span>
+                <strong id="accuracy-count">0%</strong>
+              </div>
+            </div>
+          </section>
+
           <section class="panel-block">
             <div class="panel-heading">
               <h2>Account</h2>
@@ -168,9 +175,9 @@
           </section>
         </aside>
 
-        <section class="practice-stage reboot-stage">
-          <div class="stage-main">
-            <div class="stage-topbar">
+        <section class="practice-stage claude-stage">
+          <div class="thread-shell">
+            <div class="thread-toolbar">
               <div>
                 <p id="current-badge" class="current-badge">Question 1</p>
                 <h2 id="current-title">Loading...</h2>
@@ -184,21 +191,26 @@
               <div id="progress-fill" class="progress-fill"></div>
             </div>
 
-            <article class="question-card">
-              <div id="question-content" class="question-content"></div>
-            </article>
-          </div>
+            <div class="conversation-thread">
+              <section class="thread-turn thread-turn-system">
+                <div class="turn-avatar">S</div>
+                <div class="turn-card turn-card-system">
+                  <p class="turn-label">Study prompt</p>
+                  <p class="rail-copy">
+                    Read carefully, answer the question before revealing the explanation, and mark anything you want to review later.
+                  </p>
+                </div>
+              </section>
 
-          <aside class="stage-rail">
-            <section class="rail-card rail-card-intro">
-              <p class="eyebrow">Study Controls</p>
-              <p class="rail-copy">
-                Move through the bank, reveal explanations when you need them,
-                and keep the questions you want to revisit close at hand.
-              </p>
-            </section>
+              <section class="thread-turn thread-turn-assistant">
+                <div class="turn-avatar">Q</div>
+                <article class="question-card turn-card turn-card-question">
+                  <div id="question-content" class="question-content"></div>
+                </article>
+              </section>
+            </div>
 
-            <section class="rail-card rail-card-actions">
+            <section class="composer-card">
               <div class="action-row">
                 <button id="prev-button" type="button">Previous</button>
                 <button id="reveal-button" type="button" class="primary-button">
@@ -219,7 +231,7 @@
                 </button>
               </div>
             </section>
-          </aside>
+          </div>
         </section>
       </main>
     </div>
