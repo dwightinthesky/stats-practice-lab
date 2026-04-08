@@ -342,3 +342,20 @@ html[data-theme="dark"] .choice-button {
 .choice-button.incorrect .choice-key {
   background: rgba(255,255,255,0.28);
 }
+
+/* ROUND 16 — Feedback blocks */
+.feedback-panel {
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(245, 239, 231, 0.72);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .feedback-panel {
+  background: rgba(46, 38, 32, 0.72);
+}
+
+.feedback-line {
+  font-size: 15px;
+  line-height: 1.84;
+}
