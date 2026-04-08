@@ -206,3 +206,20 @@ input::placeholder {
   background: var(--paper);
   box-shadow: none;
 }
+
+/* ROUND 08 — Practice stage shell */
+.practice-stage {
+  padding: 32px;
+  border-radius: 32px;
+  background: rgba(255, 252, 247, 0.58);
+}
+
+html[data-theme="dark"] .practice-stage {
+  background: rgba(35, 29, 24, 0.84);
+}
+
+.progress-chip {
+  background: var(--paper);
+  border-color: var(--line);
+  font-weight: 500;
+}
