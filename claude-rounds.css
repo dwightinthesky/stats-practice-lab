@@ -183,3 +183,26 @@ html[data-theme="dark"] select {
 input::placeholder {
   color: var(--muted);
 }
+
+/* ROUND 07 — Claude-like button system */
+.primary-button,
+.mini-button.primary {
+  background: #2e241d;
+  color: #f8f2ea;
+  border-color: rgba(46, 36, 29, 0.78);
+  box-shadow: none;
+}
+
+.primary-button:hover:not(:disabled),
+.mini-button.primary:hover:not(:disabled) {
+  background: #392e26;
+  box-shadow: none;
+}
+
+.ghost-button,
+.mini-button:not(.primary),
+.action-row button,
+.status-row button {
+  background: var(--paper);
+  box-shadow: none;
+}
