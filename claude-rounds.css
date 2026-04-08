@@ -310,3 +310,17 @@ html[data-theme="dark"] .choice-button {
   font-weight: 500;
   line-height: 1.76;
 }
+
+/* ROUND 14 — Muted interactive states */
+.choice-button:hover:not(:disabled) {
+  transform: none;
+  border-color: rgba(194, 118, 84, 0.22);
+  background: rgba(194, 118, 84, 0.05);
+  box-shadow: none;
+}
+
+.choice-button.selected {
+  background: rgba(194, 118, 84, 0.08);
+  border-color: rgba(194, 118, 84, 0.24);
+  box-shadow: none;
+}
