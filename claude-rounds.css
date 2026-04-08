@@ -377,3 +377,20 @@ html[data-theme="dark"] .feedback-panel {
   border-color: rgba(194, 118, 84, 0.24);
   box-shadow: none;
 }
+
+/* ROUND 18 — Activity feed refinement */
+.record-item,
+.empty-records {
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--paper);
+}
+
+.record-topline strong {
+  font-weight: 500;
+}
+
+.record-meta,
+.record-timestamp {
+  line-height: 1.65;
+}
