@@ -445,3 +445,21 @@ button,
 .mini-button {
   transition-duration: 140ms;
 }
+
+/* ROUND 22 — Action hierarchy */
+.action-row {
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.action-row button,
+.status-row button {
+  flex: 0 0 auto;
+  min-width: 164px;
+}
+
+#prev-button,
+#next-button,
+#clear-status-button {
+  background: var(--paper);
+}
