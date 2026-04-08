@@ -3133,3 +3133,170 @@ html[data-theme="dark"] .composer-card {
     padding: 24px 18px;
   }
 }
+
+/* TITLE GUTTER REWRITE — restore breathing room without reintroducing heavy layering */
+:root {
+  --section-gutter-x: 18px;
+  --section-gutter-y: 16px;
+  --thread-gutter-x: clamp(24px, 4vw, 42px);
+  --thread-gutter-y: 34px;
+}
+
+.claude-sidebar {
+  gap: 12px;
+}
+
+.claude-sidebar .panel-block {
+  gap: 12px;
+  padding: var(--section-gutter-y) var(--section-gutter-x) calc(var(--section-gutter-y) + 2px);
+  border: 1px solid color-mix(in srgb, var(--line) 90%, transparent 10%);
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--paper) 78%, transparent 22%);
+}
+
+html[data-theme="dark"] .claude-sidebar .panel-block {
+  background: color-mix(in srgb, var(--paper) 70%, #000 30%);
+}
+
+.panel-heading,
+.claude-sidebar .panel-block > h2,
+.account-name,
+.auth-card h2 {
+  padding-inline: 2px;
+}
+
+.panel-heading {
+  margin-bottom: 2px;
+}
+
+.panel-block h2 {
+  line-height: 1.24;
+}
+
+.hero-text,
+.account-note,
+.shortcut-note,
+.empty-records,
+.record-meta,
+.record-timestamp {
+  padding-inline: 2px;
+}
+
+.overview-stats.hero-panel {
+  gap: 8px;
+  padding-inline: 2px;
+}
+
+.overview-stats .stat-card {
+  padding: 10px 2px;
+}
+
+.record-item,
+.empty-records {
+  padding: 12px 2px;
+}
+
+.thread-toolbar {
+  padding-inline: 6px 2px;
+}
+
+.thread-toolbar > div:first-child {
+  padding-left: 4px;
+}
+
+.current-badge {
+  margin-bottom: 10px;
+}
+
+#current-title {
+  max-width: 19ch;
+  line-height: 1.14;
+}
+
+.turn-card-system {
+  padding: 8px 10px 2px 10px;
+}
+
+.turn-card-question.question-card {
+  padding: var(--thread-gutter-y) var(--thread-gutter-x) calc(var(--thread-gutter-y) - 2px);
+  border-radius: 22px;
+}
+
+.question-content > * {
+  width: min(100%, 62ch);
+}
+
+.question-content .section-heading {
+  margin-bottom: 2px;
+}
+
+.part-card {
+  padding: 18px 8px 6px;
+}
+
+.part-label {
+  margin-bottom: 12px;
+  padding-inline: 2px;
+}
+
+.part-prompt,
+.part-hint {
+  padding-inline: 2px;
+}
+
+.choice-button {
+  padding: 14px 8px;
+}
+
+.choice-button.selected,
+.choice-button.correct,
+.choice-button.incorrect {
+  margin-inline: -6px;
+  padding-inline: 14px;
+}
+
+.feedback-panel {
+  margin-left: 2px;
+  padding-left: 18px;
+}
+
+.feedback-content,
+.feedback-line {
+  padding-right: 2px;
+}
+
+.composer-card {
+  padding: 18px 8px 0;
+}
+
+.action-row,
+.status-row {
+  gap: 10px;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --section-gutter-x: 16px;
+    --thread-gutter-x: 18px;
+    --thread-gutter-y: 26px;
+  }
+
+  .thread-toolbar {
+    padding-inline: 2px;
+  }
+
+  .claude-sidebar .panel-block {
+    padding-inline: var(--section-gutter-x);
+  }
+
+  .choice-button.selected,
+  .choice-button.correct,
+  .choice-button.incorrect {
+    margin-inline: 0;
+    padding-inline: 8px;
+  }
+
+  .composer-card {
+    padding-inline: 0;
+  }
+}
