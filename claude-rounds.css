@@ -294,3 +294,19 @@ html[data-theme="dark"] .choice-button {
 .choice-button::before {
   display: none;
 }
+
+/* ROUND 13 — Choice typography */
+.choice-key {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+  border-color: var(--line);
+}
+
+.choice-text {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.76;
+}
