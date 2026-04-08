@@ -223,3 +223,20 @@ html[data-theme="dark"] .practice-stage {
   border-color: var(--line);
   font-weight: 500;
 }
+
+/* ROUND 09 — Reading-first question title */
+.stage-topbar h2 {
+  font-size: clamp(17px, 1.65vw, 24px);
+  line-height: 1.28;
+  max-width: 28ch;
+}
+
+.question-card {
+  padding: 42px 46px;
+  border-radius: 30px;
+  background: var(--paper-strong);
+}
+
+.question-content > * {
+  width: min(100%, 700px);
+}
