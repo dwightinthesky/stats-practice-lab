@@ -394,3 +394,19 @@ html[data-theme="dark"] .feedback-panel {
 .record-timestamp {
   line-height: 1.65;
 }
+
+/* ROUND 19 — Badge language */
+.sync-pill,
+.muted-chip,
+.record-badge,
+.feedback-badge {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+
+.account-name {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 500;
+}
