@@ -84,6 +84,39 @@ function truncate(value, maxLength) {
   return value.length > maxLength ? `${value.slice(0, maxLength - 1)}…` : value;
 }
 
+function splitLeadParagraphs(text, maxLength = 120) {
+  const normalized = `${text || ""}`.replace(/\s+/g, " ").trim();
+  if (!normalized) return [];
+
+  const sentences = (normalized.match(/[^.!?]+[.!?]?/g) || [normalized])
+    .map((sentence) => sentence.trim())
+    .filter(Boolean);
+
+  const paragraphs = [];
+  let current = "";
+
+  sentences.forEach((sentence) => {
+    if (!current) {
+      current = sentence;
+      return;
+    }
+
+    if (`${current} ${sentence}`.length <= maxLength) {
+      current = `${current} ${sentence}`;
+      return;
+    }
+
+    paragraphs.push(current);
+    current = sentence;
+  });
+
+  if (current) {
+    paragraphs.push(current);
+  }
+
+  return paragraphs;
+}
+
 function shuffle(array) {
   const copy = [...array];
   for (let index = copy.length - 1; index > 0; index -= 1) {
@@ -615,7 +648,10 @@ function renderQuestion() {
   const question = currentQuestion();
   if (!question) {
     elements.currentBadge.textContent = "No questions";
-    elements.currentTitle.textContent = "Nothing matches this filter yet.";
+    elements.currentTitle.innerHTML = "";
+    const emptyParagraph = document.createElement("p");
+    emptyParagraph.textContent = "Nothing matches this filter yet.";
+    elements.currentTitle.appendChild(emptyParagraph);
     elements.currentConceptPath.textContent = "";
     elements.progressText.textContent = "0 / 0";
     elements.progressFill.style.width = "0%";
@@ -625,7 +661,12 @@ function renderQuestion() {
 
   const classification = classificationFor(question);
   elements.currentBadge.textContent = `Question ${question.id}`;
-  elements.currentTitle.textContent = question.title;
+  elements.currentTitle.innerHTML = "";
+  splitLeadParagraphs(question.title).forEach((paragraphText) => {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = paragraphText;
+    elements.currentTitle.appendChild(paragraph);
+  });
   elements.currentConceptPath.textContent = `${classification.family} · ${classification.module} · ${classification.concept}`;
   elements.progressText.textContent = `${state.index + 1} / ${state.filtered.length}`;
   elements.progressFill.style.width = `${((state.index + 1) / state.filtered.length) * 100}%`;

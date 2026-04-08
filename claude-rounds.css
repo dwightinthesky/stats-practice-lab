@@ -3423,3 +3423,90 @@ html[data-theme="dark"] #current-title {
 html[data-theme="dark"] #current-concept-path {
   color: color-mix(in srgb, var(--muted) 80%, white 20%);
 }
+
+/* QUESTION LEAD — normal reading paragraphs */
+.thread-shell {
+  gap: 14px;
+}
+
+.thread-toolbar {
+  align-items: flex-start;
+  padding: 10px 6px 0;
+}
+
+.thread-toolbar > div:first-child {
+  position: static;
+  max-width: min(100%, 68ch);
+  padding: 0;
+}
+
+.thread-toolbar > div:first-child::before {
+  display: none;
+}
+
+.current-badge {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.current-title,
+#current-title {
+  display: grid;
+  gap: 10px;
+  max-width: min(100%, 66ch);
+  margin: 0;
+  font-family: "Inter", "Manrope", sans-serif;
+  font-size: clamp(1rem, 1.28vw, 1.08rem);
+  line-height: 1.82;
+  font-weight: 400;
+  letter-spacing: -0.006em;
+  color: color-mix(in srgb, var(--ink) 92%, #000 8%);
+}
+
+.current-title p,
+#current-title p {
+  margin: 0;
+}
+
+html[data-theme="dark"] .current-title,
+html[data-theme="dark"] #current-title {
+  color: color-mix(in srgb, var(--ink) 96%, white 4%);
+}
+
+.progress-chip {
+  margin-top: 2px;
+}
+
+.progress-rail {
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 980px) {
+  .thread-toolbar {
+    padding-top: 8px;
+  }
+
+  .current-title,
+  #current-title {
+    max-width: min(100%, 62ch);
+    font-size: 1rem;
+    line-height: 1.76;
+  }
+}
+
+@media (max-width: 720px) {
+  .thread-toolbar {
+    padding: 4px 0 0;
+  }
+
+  .current-title,
+  #current-title {
+    max-width: 100%;
+    gap: 8px;
+    font-size: 0.96rem;
+    line-height: 1.74;
+  }
+}
