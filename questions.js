@@ -485,7 +485,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Construct a Pareto diagram for the data."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A Pareto diagram with categories ordered S, MS, LS, A, SS from left to right."
+          },
+          {
+            "key": "B",
+            "text": "A Pareto diagram with categories ordered A, SS, S, MS, LS from left to right."
+          },
+          {
+            "key": "C",
+            "text": "A Pareto diagram with categories ordered LS, S, MS, SS, A from left to right."
+          },
+          {
+            "key": "D",
+            "text": "A Pareto diagram with categories ordered SS, A, LS, MS, S from left to right."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -613,7 +630,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Re-create all the numbers in the data set and construct a dot plot."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A dot plot with one dot at 0, 5, 6, 10, 14, 18, 24; two dots at 28 and 37; and three dots at 38."
+          },
+          {
+            "key": "B",
+            "text": "A dot plot with one dot at 0, 5, 6, 10, 18, 24, 37; two dots at 14 and 38; and three dots at 28."
+          },
+          {
+            "key": "C",
+            "text": "A dot plot with one dot at 0 and 5, two dots at 6 and 14, one dot at 18, two dots at 24, three dots at 28, and one dot at 37 and 38."
+          },
+          {
+            "key": "D",
+            "text": "A symmetric dot plot centered near 20 with no repeated values."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -764,7 +798,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Use the results from part a to make a statement about the type of skewness in the distribution of driving performance indexes. Support your statement with a graph. The class interval size is 0.4."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "The distribution is skewed to the right."
+          },
+          {
+            "key": "B",
+            "text": "The distribution is skewed to the left."
+          },
+          {
+            "key": "C",
+            "text": "The distribution is approximately symmetric."
+          },
+          {
+            "key": "D",
+            "text": "The distribution is approximately uniform."
+          }
+        ],
         "answerKeys": [
           "A"
         ],
@@ -964,7 +1015,28 @@ window.STAT_QUESTIONS = [
           "• z = (197 - 323) / 38 = -3.3157894736842106",
           "• Rounded to two decimals: -3.32"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "No. The z-score is -3.32, meaning that less than approximately 68% of transformers have a number of sags closer to the mean."
+          },
+          {
+            "key": "B",
+            "text": "Yes. The z-score is -3.32, meaning that this is an outlier and almost every other transformer has fewer sags."
+          },
+          {
+            "key": "C",
+            "text": "Yes. The z-score is -3.32, meaning that this is an outlier and almost every other transformer has more sags."
+          },
+          {
+            "key": "D",
+            "text": "No. The z-score is -3.32, meaning that the number of sags is not unusual and is not an outlier."
+          },
+          {
+            "key": "E",
+            "text": "This cannot be determined, since the IQR is not provided and cannot be found from the given information."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -986,7 +1058,28 @@ window.STAT_QUESTIONS = [
           "• z = (195 - 146) / 30 = 1.6333333333333333",
           "• Rounded to two decimals: 1.63"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "No. The z-score is 1.63, meaning that less than approximately 68% of transformers have a number of swells closer to the mean."
+          },
+          {
+            "key": "B",
+            "text": "Yes. The z-score is 1.63, meaning that this is an outlier and almost every other transformer has fewer swells."
+          },
+          {
+            "key": "C",
+            "text": "Yes. The z-score is 1.63, meaning that this is an outlier and almost every other transformer has more swells."
+          },
+          {
+            "key": "D",
+            "text": "No. The z-score is 1.63, meaning that the number of swells is not unusual and is not an outlier."
+          },
+          {
+            "key": "E",
+            "text": "This cannot be determined, since the IQR is not provided and cannot be found from the given information."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -1139,7 +1232,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Based on the comparisons in parts a-c, do you think opinion on the fairness of a travel professional's salary differs for males and females?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "Yes, since there appeared to be differences between the proportions of males and females on all 3 levels."
+          },
+          {
+            "key": "B",
+            "text": "No, since there appeared to be differences between the proportions of males and females on 2 of the 3 levels."
+          },
+          {
+            "key": "C",
+            "text": "No, since there appeared to be no differences between the proportions of males and females on any of the levels."
+          },
+          {
+            "key": "D",
+            "text": "Yes, since there appeared to be differences between the proportions of males and females on 2 of the 3 levels."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -1180,7 +1290,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Choose the correct graph."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A line with slope +1 and y-intercept 6."
+          },
+          {
+            "key": "B",
+            "text": "A line with slope +1 and y-intercept -6."
+          },
+          {
+            "key": "C",
+            "text": "A line with slope -3 and y-intercept 6."
+          },
+          {
+            "key": "D",
+            "text": "A line with slope +3 and y-intercept -6."
+          }
+        ],
         "answerKeys": [
           "A"
         ],
@@ -1197,7 +1324,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Choose the correct graph."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A line with positive slope passing through y = -6."
+          },
+          {
+            "key": "B",
+            "text": "A line with slope -3 crossing the y-axis at 6."
+          },
+          {
+            "key": "C",
+            "text": "A line with slope -1 passing through the origin."
+          },
+          {
+            "key": "D",
+            "text": "A line with slope +3 crossing the y-axis at 6."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -1214,7 +1358,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Choose the correct graph."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A line with positive slope and y-intercept -5."
+          },
+          {
+            "key": "B",
+            "text": "A steep negative line passing through the origin."
+          },
+          {
+            "key": "C",
+            "text": "A moderate negative line crossing the y-axis above the origin."
+          },
+          {
+            "key": "D",
+            "text": "A steep positive line passing through the origin."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -1315,7 +1476,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Construct a scatterplot of these data."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A scatterplot with only positive x-values and no high point near (8, 9)."
+          },
+          {
+            "key": "B",
+            "text": "A scatterplot that places the only y = 0 point near x = 8."
+          },
+          {
+            "key": "C",
+            "text": "A scatterplot with a negative trend and no repeated x-values."
+          },
+          {
+            "key": "D",
+            "text": "A scatterplot that includes (-2, 0), (2, 1), two points at x = 4, two points at x = 5, and a high point at (8, 9)."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -1332,7 +1510,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "What does the scatterplot suggest about the relationship between x and y?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "As x increases, y tends to increase. Thus, there appears to be a positive, linear relationship between x and y."
+          },
+          {
+            "key": "B",
+            "text": "As x increases, y tends to increase. Thus, there appears to be a negative, linear relationship between x and y."
+          },
+          {
+            "key": "C",
+            "text": "As x increases, y tends to decrease. Thus, there appears to be a negative, linear relationship between x and y."
+          },
+          {
+            "key": "D",
+            "text": "As x increases, y tends to decrease. Thus, there appears to be a positive, linear relationship between x and y."
+          }
+        ],
         "answerKeys": [
           "A"
         ],
@@ -1355,13 +1550,28 @@ window.STAT_QUESTIONS = [
           "• Intercept: approximately 0.458",
           "• Regression line: y = 0.458 + 0.838x"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "An upward-sloping least squares line, but the points vary widely around it, so the fit is poor."
+          },
+          {
+            "key": "B",
+            "text": "A downward-sloping least squares line that fits the data quite well."
+          },
+          {
+            "key": "C",
+            "text": "An upward-sloping least squares line, and the variation of the data points around the line is not very large."
+          },
+          {
+            "key": "D",
+            "text": "A horizontal least squares line because the data show no linear pattern."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
         "answerDetails": [
-          "Correct answer: D",
-          "",
           "Correct answer: C"
         ],
         "explanation": [
@@ -1406,7 +1616,24 @@ window.STAT_QUESTIONS = [
           "",
           "Model Form: y = beta_0 + beta_1 x"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "y = β0 + β1x"
+          },
+          {
+            "key": "B",
+            "text": "y = β1x"
+          },
+          {
+            "key": "C",
+            "text": "y = β1x^2 + β0"
+          },
+          {
+            "key": "D",
+            "text": "y = β1 / x"
+          }
+        ],
         "answerKeys": [
           "A"
         ],
@@ -1434,7 +1661,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Give a practical interpretation of the y-intercept of the least squares line."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "For each additional one-day duration, the number of arrests is estimated to change by the value of the y-intercept."
+          },
+          {
+            "key": "B",
+            "text": "Since a sit-in with duration 0 is outside the range of the sample data, the y-intercept has no practical interpretation."
+          },
+          {
+            "key": "C",
+            "text": "Since a sit-in with 0 arrests is outside the range of the sample data, the y-intercept has no practical interpretation."
+          },
+          {
+            "key": "D",
+            "text": "For each additional arrest, the duration is estimated to change by the value of the slope."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -1451,7 +1695,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Give a practical interpretation of the slope of the least squares line."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "For each additional arrest, the duration is estimated to change by the value of the slope."
+          },
+          {
+            "key": "B",
+            "text": "Since a sit-in with duration 0 is outside the range of the sample data, the slope has no practical interpretation."
+          },
+          {
+            "key": "C",
+            "text": "For each additional one day of duration, the number of arrests is estimated to increase by the value of the slope."
+          },
+          {
+            "key": "D",
+            "text": "Since a sit-in with 0 arrests is outside the range of the sample data, the slope has no practical interpretation."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -1468,7 +1729,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Over what range is the interpretation meaningful?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "The interpretation is valid for all sit-ins with the number of arrests greater than 0."
+          },
+          {
+            "key": "B",
+            "text": "The interpretation is valid only for sit-ins with durations within the range of the sample data."
+          },
+          {
+            "key": "C",
+            "text": "The interpretation is valid only for sit-ins with the number of arrests within the range of the sample data."
+          },
+          {
+            "key": "D",
+            "text": "The interpretation is valid for all sit-ins with durations greater than 0."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -1530,7 +1808,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Practically interpret the estimated y-intercept."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "For a decade with 0 total births in this country, the predicted number of software millionaire birthdays is -19.71."
+          },
+          {
+            "key": "B",
+            "text": "For a decade with 0 software millionaire birthdays, the total number of births is predicted to be 19.71 million."
+          },
+          {
+            "key": "C",
+            "text": "The y-intercept does not have a practical interpretation."
+          },
+          {
+            "key": "D",
+            "text": "The y-intercept means births and software-millionaire birthdays are unrelated."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -1547,7 +1842,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Practically interpret the estimated slope."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "For each additional 1 million births in the country, the predicted number of software millionaire birthdays decreases by about 0.82."
+          },
+          {
+            "key": "B",
+            "text": "For each additional 1 million births in the country, the predicted number of software millionaire birthdays increases by about 0.82."
+          },
+          {
+            "key": "C",
+            "text": "The slope does not have a practical interpretation."
+          },
+          {
+            "key": "D",
+            "text": "For each additional software-millionaire birthday, the number of births is predicted to increase by 0.82 million."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -1747,7 +2059,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Identify the sample points for this experiment."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "male and glove fits well, male and glove fits poorly, female and glove fits well, female and glove fits poorly, no response"
+          },
+          {
+            "key": "B",
+            "text": "male and glove fits well, female and glove fits well"
+          },
+          {
+            "key": "C",
+            "text": "male and glove fits well, male and glove fits poorly, female and glove fits well, female and glove fits poorly"
+          },
+          {
+            "key": "D",
+            "text": "male, female, glove fits well, glove fits poorly"
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -1775,7 +2104,28 @@ window.STAT_QUESTIONS = [
           "• P(female and well) = 22 / 591 = 0.037",
           "• P(female and poorly) = 25 / 591 = 0.042"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "0.684, 0.237"
+          },
+          {
+            "key": "B",
+            "text": "0.920, 0.080, 0.721, 0.279"
+          },
+          {
+            "key": "C",
+            "text": "0.316, 0.763, 0.963, 0.958"
+          },
+          {
+            "key": "D",
+            "text": "0.684, 0.237, 0.037, 0.042"
+          },
+          {
+            "key": "E",
+            "text": "0.25, 0.25, 0.25, 0.25"
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -1866,7 +2216,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Draw a Venn diagram to illustrate the results."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A Venn diagram with two disjoint circles for A and B."
+          },
+          {
+            "key": "B",
+            "text": "A Venn diagram with A completely inside B."
+          },
+          {
+            "key": "C",
+            "text": "A Venn diagram with overlapping circles for A and B."
+          },
+          {
+            "key": "D",
+            "text": "A Venn diagram with B completely inside A."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -1965,7 +2332,32 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Are A and B independent events?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "Yes, the events are independent because P(A|B) ≠ P(A)."
+          },
+          {
+            "key": "B",
+            "text": "Yes, the events are independent because P(A|B) = P(A)."
+          },
+          {
+            "key": "C",
+            "text": "No, the events are dependent because P(A|B) ≠ P(A)."
+          },
+          {
+            "key": "D",
+            "text": "Yes, the events are independent because P(B|A) = P(A)."
+          },
+          {
+            "key": "E",
+            "text": "No, the events are dependent because P(B|A) ≠ P(A)."
+          },
+          {
+            "key": "F",
+            "text": "No, the events are dependent because P(A|B) = P(A)."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -2052,7 +2444,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Are the events A and B mutually exclusive?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "No, because some full-time workers exhibit arrogant behaviors but do not receive a poor performance rating."
+          },
+          {
+            "key": "B",
+            "text": "No, because some full-time workers exhibit arrogant behaviors and receive a poor performance rating."
+          },
+          {
+            "key": "C",
+            "text": "Yes, because some full-time workers exhibit arrogant behaviors and receive a poor performance rating."
+          },
+          {
+            "key": "D",
+            "text": "Yes, because some full-time workers exhibit arrogant behaviors but do not receive a poor performance rating."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -2084,7 +2493,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Are the events A and B independent?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "No, because if workers exhibit arrogant behaviors, they will receive a poor performance rating."
+          },
+          {
+            "key": "B",
+            "text": "Yes, because if workers exhibit arrogant behaviors, they are more likely to receive a poor performance rating."
+          },
+          {
+            "key": "C",
+            "text": "Yes, because if workers exhibit arrogant behaviors, they are neither more nor less likely to receive a poor performance rating."
+          },
+          {
+            "key": "D",
+            "text": "No, because if workers exhibit arrogant behaviors, they are more likely to receive a poor performance rating."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -2130,7 +2556,24 @@ window.STAT_QUESTIONS = [
         "id": "part-1",
         "label": "Question",
         "prompt": [],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "Profit distribution: $250 with probability 0.50, $375 with probability 0.25, and $500 with probability 0.25."
+          },
+          {
+            "key": "B",
+            "text": "Profit distribution: $300 with probability 0.50, $550 with probability 0.25, and $800 with probability 0.25."
+          },
+          {
+            "key": "C",
+            "text": "Profit distribution: $500 with probability 0.50, $750 with probability 0.25, and $1,000 with probability 0.25."
+          },
+          {
+            "key": "D",
+            "text": "Profit distribution: $0 with probability 0.50, $250 with probability 0.25, and $500 with probability 0.25."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -2169,7 +2612,24 @@ window.STAT_QUESTIONS = [
         "id": "part-1",
         "label": "Question",
         "prompt": [],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "$670"
+          },
+          {
+            "key": "B",
+            "text": "$1,288"
+          },
+          {
+            "key": "C",
+            "text": "$13"
+          },
+          {
+            "key": "D",
+            "text": "$3,481,400"
+          }
+        ],
         "answerKeys": [
           "A"
         ],
@@ -2643,7 +3103,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Would it be appropriate to approximate the probability distribution of x with a normal distribution?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "No, because μ ± 3σ lies within the boundaries of 0 and 10."
+          },
+          {
+            "key": "B",
+            "text": "No, because μ ± 3σ lies outside the boundaries of 0 and 10."
+          },
+          {
+            "key": "C",
+            "text": "Yes, because μ ± 3σ lies outside the boundaries of 0 and 10."
+          },
+          {
+            "key": "D",
+            "text": "Yes, because μ ± 3σ lies within the boundaries of 0 and 10."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -2776,7 +3253,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "What changes occur in the histograms as the value of n increases?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "As the value of n increases, the x̄ value of the histograms' central tendencies decrease."
+          },
+          {
+            "key": "B",
+            "text": "As the value of n increases, the histograms become more spread out."
+          },
+          {
+            "key": "C",
+            "text": "As the value of n increases, the histograms become less spread out."
+          },
+          {
+            "key": "D",
+            "text": "As the value of n increases, the x̄ value of the histograms' central tendencies increase."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -2793,7 +3287,32 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "What similarities exist?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "All of the histograms are about equally spread out."
+          },
+          {
+            "key": "B",
+            "text": "All of the histograms have an approximately normal distribution shape and similar central tendencies."
+          },
+          {
+            "key": "C",
+            "text": "All of the histograms have an approximately uniform distribution shape and similar central tendencies."
+          },
+          {
+            "key": "D",
+            "text": "All of the histograms have an approximately uniform distribution shape."
+          },
+          {
+            "key": "E",
+            "text": "All of the histograms have an approximately normal distribution shape."
+          },
+          {
+            "key": "F",
+            "text": "There are no similarities between the different histograms."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -2907,7 +3426,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Describe the shape of the sampling distribution of x̄."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "The shape is that of a uniform distribution."
+          },
+          {
+            "key": "B",
+            "text": "The shape is that of a Poisson distribution."
+          },
+          {
+            "key": "C",
+            "text": "The shape is that of a normal distribution."
+          },
+          {
+            "key": "D",
+            "text": "The shape is that of a binomial distribution."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -2996,7 +3532,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Describe the shape of the sampling distribution of p̂."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "The shape of the sampling distribution of p̂ is approximately uniform because the sample size is large."
+          },
+          {
+            "key": "B",
+            "text": "The shape of the sampling distribution of p̂ is approximately uniform because the sample size is small."
+          },
+          {
+            "key": "C",
+            "text": "The shape of the sampling distribution of p̂ is approximately normal because the sample size is large."
+          },
+          {
+            "key": "D",
+            "text": "The shape of the sampling distribution of p̂ is approximately normal because the sample size is small."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -3209,7 +3762,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "When you say you are \"90% confident,\" what do you mean?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "The phrasing '90% confident' means that there is a 90% chance that the sample data were collected in such a way that the bounds of the confidence interval can be trusted."
+          },
+          {
+            "key": "B",
+            "text": "The phrasing '90% confident' means that 90% of confidence intervals constructed from similarly collected samples will contain the true population mean."
+          },
+          {
+            "key": "C",
+            "text": "The phrasing '90% confident' means that 90% of the sample data will fall between the bounds of the confidence interval."
+          },
+          {
+            "key": "D",
+            "text": "The phrasing '90% confident' means that similarly collected samples will be approximately normal 90% of the time."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -3288,7 +3858,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "What do you mean when you say that a confidence coefficient is 0.95?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A confidence coefficient of 0.95 means that 95% of the values in the population will be contained in an interval estimator constructed using this coefficient."
+          },
+          {
+            "key": "B",
+            "text": "A confidence coefficient of 0.95 means that there is a probability of 0.95 that an interval estimator constructed using this coefficient will contain all of the values in the relevant sample."
+          },
+          {
+            "key": "C",
+            "text": "A confidence coefficient of 0.95 means that there is a probability of 0.95 that an interval estimator constructed using this coefficient will enclose the population parameter."
+          },
+          {
+            "key": "D",
+            "text": "A confidence coefficient of 0.95 means that 95% of the values in any sample taken from the population will be contained in an interval estimator constructed using this coefficient."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -3341,7 +3928,28 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Would your confidence intervals of parts a and c be valid if the distribution of the original population were not normal? Explain."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "No, the underlying distribution must be normal for the validity of these confidence intervals."
+          },
+          {
+            "key": "B",
+            "text": "Yes, since the sample sizes are large (n ≥ 30), the condition guarantees that the sampling distribution of x̄ is approximately normal."
+          },
+          {
+            "key": "C",
+            "text": "Yes, since the confidence level is at least 90%, the underlying distribution need not be normal."
+          },
+          {
+            "key": "D",
+            "text": "Yes, since the sample sizes are large (n ≥ 30) and randomly selected from the target population, the condition guarantees that the sampling distribution of x̄ is approximately normal."
+          },
+          {
+            "key": "E",
+            "text": "Yes, since the sample was randomly selected from the target population, the sampling distribution of x̄ is guaranteed to be approximately normal."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -3473,7 +4081,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Give a practical interpretation of the interval from part b."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "We are confident that 95% of the population do not use a cell phone while driving."
+          },
+          {
+            "key": "B",
+            "text": "We are confident that 95% of the population use a cell phone while driving."
+          },
+          {
+            "key": "C",
+            "text": "We are 95% confident that the true proportion of drivers using cell phones is inside this interval."
+          },
+          {
+            "key": "D",
+            "text": "There is a 95% chance that the true proportion of drivers who use cell phones is outside this interval."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -3550,7 +4175,24 @@ window.STAT_QUESTIONS = [
         "id": "part-1",
         "label": "Question",
         "prompt": [],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "There is insufficient evidence to reject H0 for α = 0.15."
+          },
+          {
+            "key": "B",
+            "text": "There is sufficient evidence to reject H0 for α > 0.15."
+          },
+          {
+            "key": "C",
+            "text": "There is insufficient evidence to reject H0 for α > 0.15."
+          },
+          {
+            "key": "D",
+            "text": "There is sufficient evidence to reject H0 for α < 0.15."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -3605,7 +4247,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Specify the null and alternative hypotheses for testing this claim."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "H0: μ = 74; Ha: μ > 74"
+          },
+          {
+            "key": "B",
+            "text": "H0: μ ≠ 74; Ha: μ = 74"
+          },
+          {
+            "key": "C",
+            "text": "H0: μ = 74; Ha: μ < 74"
+          },
+          {
+            "key": "D",
+            "text": "H0: μ = 74; Ha: μ ≠ 74"
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -3625,7 +4284,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "What is a Type I error in this problem?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A Type I error would be to conclude that the sample mean level of support for sustainability is greater than 74 when, in fact, the sample mean is less than 74."
+          },
+          {
+            "key": "B",
+            "text": "A Type I error would be to conclude that the true mean level of support for sustainability is not 74 when, in fact, the mean is equal to 74."
+          },
+          {
+            "key": "C",
+            "text": "A Type I error would be to conclude that the sample mean level of support for sustainability is less than 74 when, in fact, the sample mean is greater than 74."
+          },
+          {
+            "key": "D",
+            "text": "A Type I error would be to conclude that the true mean level of support for sustainability is 74 when, in fact, the mean is not equal to 74."
+          }
+        ],
         "answerKeys": [
           "B"
         ],
@@ -3642,7 +4318,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "What is a Type II error in this problem?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A Type II error would be to conclude that the sample mean level of support for sustainability is less than 74 when, in fact, the sample mean is greater than 74."
+          },
+          {
+            "key": "B",
+            "text": "A Type II error would be to conclude that the true mean level of support for sustainability is not 74 when, in fact, the mean is equal to 74."
+          },
+          {
+            "key": "C",
+            "text": "A Type II error would be to conclude that the true mean level of support for sustainability is 74 when, in fact, the mean is not equal to 74."
+          },
+          {
+            "key": "D",
+            "text": "A Type II error would be to conclude that the sample mean level of support for sustainability is greater than 74 when, in fact, the sample mean is less than 74."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -3675,7 +4368,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "At alpha = 0.05, give the appropriate conclusion."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "Do not reject the null hypothesis. There is sufficient evidence at the α = 0.05 level of significance to conclude that the true mean level of support for sustainability is not equal to 74."
+          },
+          {
+            "key": "B",
+            "text": "Do not reject the null hypothesis. There is sufficient evidence at the α = 0.05 level of significance to conclude that the true mean level of support for sustainability is greater than 74."
+          },
+          {
+            "key": "C",
+            "text": "Reject the null hypothesis. There is sufficient evidence at the α = 0.05 level of significance to conclude that the true mean level of support for sustainability is not equal to 74."
+          },
+          {
+            "key": "D",
+            "text": "Reject the null hypothesis. There is insufficient evidence at the α = 0.05 level of significance to conclude that the true mean level of support for sustainability is equal to 74."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -3692,7 +4402,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "What assumptions, if any, about the distribution of support levels must hold true in order for the inference derived from the test to be valid? Select all that apply."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "One must assume that the distribution of support levels is normal because the sample size is very large."
+          },
+          {
+            "key": "B",
+            "text": "One must assume that the distribution of support levels is symmetric because the test is two-tailed."
+          },
+          {
+            "key": "C",
+            "text": "One must assume that the distribution of support levels is normal because the population standard deviation is not given."
+          },
+          {
+            "key": "D",
+            "text": "No assumptions are necessary because the sample size is very large."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -3732,7 +4459,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "What assumptions are necessary for the validity of this procedure? Select all that apply."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "A random sample is selected from the target population."
+          },
+          {
+            "key": "B",
+            "text": "The population from which the sample is selected has a distribution that is approximately normal."
+          },
+          {
+            "key": "C",
+            "text": "The population standard deviation is approximately equal to the sample standard deviation."
+          },
+          {
+            "key": "D",
+            "text": "No assumptions need to be made to perform the test."
+          }
+        ],
         "answerKeys": [
           "A",
           "B"
@@ -3827,7 +4571,32 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Set up the null and alternative hypotheses for testing whether the true proportion exceeds 0.7."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "H0: p < 0.7; Ha: p = 0.7"
+          },
+          {
+            "key": "B",
+            "text": "H0: p = 0.7; Ha: p < 0.7"
+          },
+          {
+            "key": "C",
+            "text": "H0: p > 0.7; Ha: p ≤ 0.7"
+          },
+          {
+            "key": "D",
+            "text": "H0: p ≠ 0.7; Ha: p = 0.7"
+          },
+          {
+            "key": "E",
+            "text": "H0: p = 0.7; Ha: p ≠ 0.7"
+          },
+          {
+            "key": "F",
+            "text": "H0: p = 0.7; Ha: p > 0.7"
+          }
+        ],
         "answerKeys": [
           "F"
         ],
@@ -3865,7 +4634,24 @@ window.STAT_QUESTIONS = [
           "",
           "Fill-in: z > 2.326"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "Reject H0 if z < -2.576 or z > 2.576."
+          },
+          {
+            "key": "B",
+            "text": "Reject H0 if z = 2.326."
+          },
+          {
+            "key": "C",
+            "text": "Reject H0 if z < -2.326."
+          },
+          {
+            "key": "D",
+            "text": "Reject H0 if z > 2.326."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -3953,22 +4739,66 @@ window.STAT_QUESTIONS = [
     "parts": [
       {
         "id": "part-1",
-        "label": "Question",
+        "label": "About the two populations",
+        "prompt": [
+          "About the two populations: Select all that apply."
+        ],
+        "choices": [
+          {
+            "key": "A",
+            "text": "Both sampled populations must have approximately equal population variances."
+          },
+          {
+            "key": "B",
+            "text": "Both sampled populations must be approximately normally distributed."
+          },
+          {
+            "key": "C",
+            "text": "There must be more than 30 samples selected from each population."
+          },
+          {
+            "key": "D",
+            "text": "Both populations must be selected independently of each other."
+          }
+        ],
+        "answerKeys": [
+          "A",
+          "B"
+        ],
+        "answerDetails": [
+          "Correct answers: A, B"
+        ],
+        "explanation": [
+          "For the pooled two-sample t-test with small samples, we assume the two populations are approximately normally distributed and have approximately equal variances."
+        ]
+      },
+      {
+        "id": "part-2",
+        "label": "About the two samples",
         "prompt": [
           "About the two samples: Select all that apply."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "The samples must be independent of each other."
+          },
+          {
+            "key": "B",
+            "text": "There must be more than 30 samples selected from each population."
+          },
+          {
+            "key": "C",
+            "text": "The samples themselves must be normally distributed."
+          }
+        ],
         "answerKeys": [
           "A"
         ],
         "answerDetails": [
-          "Correct answers: A, B",
-          "",
           "Correct answer: A"
         ],
         "explanation": [
-          "For the pooled two-sample t-test with small samples, we assume the two populations are approximately normally distributed and have approximately equal variances.",
-          "",
           "The two samples must be independent of each other. There is no requirement here that each sample size exceed 30, and normality is assumed for the populations rather than the samples themselves."
         ]
       }
@@ -4003,7 +4833,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Conduct the test H0: (mu1 - mu2) = 0 against Ha: (mu1 - mu2) ≠ 0 using alpha = 0.10."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "Do not reject H0. There is insufficient evidence that the means differ."
+          },
+          {
+            "key": "B",
+            "text": "Reject H0. There is sufficient evidence that the means differ."
+          },
+          {
+            "key": "C",
+            "text": "Do not reject H0. There is sufficient evidence that the means differ."
+          },
+          {
+            "key": "D",
+            "text": "Reject H0. There is insufficient evidence that the means differ."
+          }
+        ],
         "answerKeys": [
           "A"
         ],
@@ -4071,7 +4918,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Interpret the results of the computer analysis. Use alpha ≤ 0.10."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "Since the given α value exceeds this p-value, there is sufficient evidence to indicate that the population means are different."
+          },
+          {
+            "key": "B",
+            "text": "Since the given α value exceeds this p-value, there is insufficient evidence to indicate that the population means are different."
+          },
+          {
+            "key": "C",
+            "text": "Since this p-value exceeds the given value of α, there is insufficient evidence to indicate that the population means are different."
+          },
+          {
+            "key": "D",
+            "text": "Since this p-value exceeds the given value of α, there is sufficient evidence to indicate that the population means are different."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -4090,7 +4954,20 @@ window.STAT_QUESTIONS = [
           "",
           "New p-value: Cannot be determined from the information given alone."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "There is not enough information to determine the one-tailed p-value or its interpretation."
+          },
+          {
+            "key": "B",
+            "text": "Since the given value of α exceeds the p-value for this one-tailed test, there is sufficient evidence to conclude that the mean for population 1 is significantly lower than the mean for population 2."
+          },
+          {
+            "key": "C",
+            "text": "Since the p-value for this one-tailed test exceeds the given value of α, there is insufficient evidence to conclude that the mean for population 1 is significantly lower than the mean for population 2."
+          }
+        ],
         "answerKeys": [
           "A"
         ],
@@ -4174,7 +5051,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Form a 90% confidence interval for the difference between the true redemption rates."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "With 90% confidence, the confidence interval does not contain the true value of the proportion of milkshake-store coupons redeemed and the proportion of donut-store coupons redeemed."
+          },
+          {
+            "key": "B",
+            "text": "With 90% confidence, the confidence interval does not contain the true value of the difference between the population proportions of redeemed milkshake-store coupons and redeemed donut-store coupons."
+          },
+          {
+            "key": "C",
+            "text": "With 90% confidence, the confidence interval contains the true value of the difference between the population proportions of redeemed milkshake-store coupons and redeemed donut-store coupons."
+          },
+          {
+            "key": "D",
+            "text": "With 90% confidence, the confidence interval contains the true value of the proportion of redeemed milkshake-store coupons and the proportion of redeemed donut-store coupons."
+          }
+        ],
         "answerKeys": [
           "C"
         ],
@@ -4193,7 +5087,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Explain the meaning of the phrase \"90% confident.\""
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "The probability that an interval estimator encloses both of the sample proportions is 0.90."
+          },
+          {
+            "key": "B",
+            "text": "The probability that an interval estimator encloses at least one of the sample proportions is 0.90."
+          },
+          {
+            "key": "C",
+            "text": "The probability that an interval estimator excludes the population parameter is 0.90."
+          },
+          {
+            "key": "D",
+            "text": "The probability that an interval estimator encloses the population parameter is 0.90."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -4210,7 +5121,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Based on the interval from part d, is there a statistically significant difference between the redemption rates?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "No, because the confidence interval does not contain 0."
+          },
+          {
+            "key": "B",
+            "text": "Yes, because the confidence interval contains 0."
+          },
+          {
+            "key": "C",
+            "text": "No, because the confidence interval contains 0."
+          },
+          {
+            "key": "D",
+            "text": "Yes, because the confidence interval does not contain 0."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -4227,7 +5155,24 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Assume the true difference between redemption rates must exceed 0.01 for the researchers to consider the difference to be practically significant. Based on the interval from part d, is there a practically significant difference?"
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "No, because 0.01 is contained within the confidence interval."
+          },
+          {
+            "key": "B",
+            "text": "Yes, because the upper limit of the confidence interval is less than -0.01."
+          },
+          {
+            "key": "C",
+            "text": "Yes, because 0.01 is contained within the confidence interval."
+          },
+          {
+            "key": "D",
+            "text": "Yes, because the lower limit of the confidence interval is greater than 0.01."
+          }
+        ],
         "answerKeys": [
           "D"
         ],
@@ -4266,7 +5211,32 @@ window.STAT_QUESTIONS = [
         "prompt": [
           "Identify the null and alternative hypotheses."
         ],
-        "choices": [],
+        "choices": [
+          {
+            "key": "A",
+            "text": "H0: (p1 - p2) = 0; Ha: (p1 - p2) < 0"
+          },
+          {
+            "key": "B",
+            "text": "H0: (p1 - p2) > 0; Ha: (p1 - p2) = 0"
+          },
+          {
+            "key": "C",
+            "text": "H0: (p1 - p2) = 0; Ha: (p1 - p2) ≠ 0"
+          },
+          {
+            "key": "D",
+            "text": "H0: (p1 - p2) < 0; Ha: (p1 - p2) = 0"
+          },
+          {
+            "key": "E",
+            "text": "H0: (p1 - p2) ≠ 0; Ha: (p1 - p2) = 0"
+          },
+          {
+            "key": "F",
+            "text": "H0: (p1 - p2) = 0; Ha: (p1 - p2) > 0"
+          }
+        ],
         "answerKeys": [
           "F"
         ],

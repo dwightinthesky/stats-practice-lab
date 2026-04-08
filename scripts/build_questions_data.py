@@ -4,6 +4,7 @@ import json
 import re
 from pathlib import Path
 
+from manual_question_overrides import apply_manual_overrides
 from question_taxonomy import classification_for
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -295,6 +296,7 @@ def build_questions() -> list[dict[str, object]]:
 
 def main() -> None:
     questions = build_questions()
+    questions = apply_manual_overrides(questions)
     payload = "window.STAT_QUESTIONS = " + json.dumps(questions, ensure_ascii=False, indent=2) + ";\n"
     OUTPUT.write_text(payload, encoding="utf-8")
     print(f"Built {len(questions)} questions -> {OUTPUT}")
