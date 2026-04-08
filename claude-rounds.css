@@ -506,3 +506,19 @@ button,
     padding: 22px 20px;
   }
 }
+
+/* ROUND 25 — Light theme paper polish */
+html[data-theme="light"] .hero-copy,
+html[data-theme="light"] .panel-block,
+html[data-theme="light"] .practice-stage,
+html[data-theme="light"] .question-card,
+html[data-theme="light"] .part-card,
+html[data-theme="light"] .stat-card,
+html[data-theme="light"] .auth-card {
+  box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 18px 36px rgba(84, 57, 35, 0.06);
+}
+
+html[data-theme="light"] .hero-copy::before,
+html[data-theme="light"] .hero-copy::after {
+  opacity: 0.45;
+}
