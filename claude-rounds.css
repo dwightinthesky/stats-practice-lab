@@ -240,3 +240,18 @@ html[data-theme="dark"] .practice-stage {
 .question-content > * {
   width: min(100%, 700px);
 }
+
+/* ROUND 10 — Body copy rhythm */
+.question-content {
+  gap: 34px;
+}
+
+.question-content p {
+  font-size: 15.5px;
+  line-height: 2.02;
+  letter-spacing: -0.012em;
+}
+
+.question-intro {
+  gap: 20px;
+}
