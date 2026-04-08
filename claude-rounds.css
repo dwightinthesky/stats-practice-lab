@@ -324,3 +324,21 @@ html[data-theme="dark"] .choice-button {
   border-color: rgba(194, 118, 84, 0.24);
   box-shadow: none;
 }
+
+/* ROUND 15 — Humane correctness colors */
+.choice-button.correct {
+  background: rgba(76, 148, 118, 0.10);
+  border-color: rgba(76, 148, 118, 0.22);
+  box-shadow: none;
+}
+
+.choice-button.incorrect {
+  background: rgba(196, 103, 69, 0.10);
+  border-color: rgba(196, 103, 69, 0.22);
+  box-shadow: none;
+}
+
+.choice-button.correct .choice-key,
+.choice-button.incorrect .choice-key {
+  background: rgba(255,255,255,0.28);
+}
