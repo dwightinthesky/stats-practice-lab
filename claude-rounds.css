@@ -3436,7 +3436,7 @@ html[data-theme="dark"] #current-concept-path {
 
 .thread-toolbar > div:first-child {
   position: static;
-  max-width: min(100%, 68ch);
+  max-width: min(100%, 75ch);
   padding: 0;
 }
 
@@ -3455,7 +3455,7 @@ html[data-theme="dark"] #current-concept-path {
 #current-title {
   display: grid;
   gap: 10px;
-  max-width: min(100%, 66ch);
+  max-width: min(100%, 73ch);
   margin: 0;
   font-family: "Inter", "Manrope", sans-serif;
   font-size: clamp(1rem, 1.28vw, 1.08rem);
@@ -3491,7 +3491,7 @@ html[data-theme="dark"] #current-title {
 
   .current-title,
   #current-title {
-    max-width: min(100%, 62ch);
+    max-width: min(100%, 68ch);
     font-size: 1rem;
     line-height: 1.76;
   }
