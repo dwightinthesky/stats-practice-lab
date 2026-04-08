@@ -359,3 +359,21 @@ html[data-theme="dark"] .feedback-panel {
   font-size: 15px;
   line-height: 1.84;
 }
+
+/* ROUND 17 — Question list calmness */
+.question-list {
+  gap: 10px;
+  max-height: 360px;
+}
+
+.question-list-item {
+  padding: 14px 15px;
+  border-radius: 18px;
+  background: var(--paper);
+}
+
+.question-list-item.active {
+  background: rgba(194, 118, 84, 0.08);
+  border-color: rgba(194, 118, 84, 0.24);
+  box-shadow: none;
+}
