@@ -2863,3 +2863,273 @@ html[data-theme="dark"] .composer-card {
     margin-top: 4px;
   }
 }
+
+/* FLATTEN CARD LAYERS — keep one main reading surface */
+.app-layout {
+  gap: 28px;
+}
+
+.claude-sidebar {
+  padding: 6px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.claude-sidebar .panel-block {
+  gap: 12px;
+  padding: 0 0 18px;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 88%, transparent 12%);
+}
+
+.overview-stats.hero-panel {
+  gap: 6px;
+  grid-template-columns: 1fr;
+}
+
+.overview-stats .stat-card {
+  min-height: auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.overview-stats .stat-card strong {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.overview-stats .stat-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+}
+
+.record-list {
+  gap: 0;
+}
+
+.record-item,
+.empty-records {
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 88%, transparent 12%);
+  border-radius: 0;
+  background: transparent;
+}
+
+.record-list > :last-child {
+  border-bottom: 0;
+}
+
+.thread-shell {
+  gap: 16px;
+}
+
+.thread-toolbar {
+  align-items: flex-start;
+}
+
+#current-title {
+  max-width: 18ch;
+}
+
+.progress-chip {
+  min-height: 34px;
+  padding: 0 10px;
+  border-color: color-mix(in srgb, var(--line) 80%, transparent 20%);
+  background: transparent;
+}
+
+.thread-turn {
+  gap: 10px;
+}
+
+.turn-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border-color: color-mix(in srgb, var(--line) 72%, transparent 28%);
+  background: transparent;
+  font-size: 0.7rem;
+}
+
+.turn-card {
+  border: 0;
+  background: transparent;
+}
+
+.turn-card-system {
+  padding: 0;
+}
+
+.turn-label {
+  margin-bottom: 2px;
+}
+
+.turn-card-question.question-card {
+  padding: 30px clamp(20px, 3.8vw, 40px);
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--line) 90%, transparent 10%);
+  background: color-mix(in srgb, var(--paper-strong) 96%, transparent 4%);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+  backdrop-filter: none;
+}
+
+html[data-theme="dark"] .turn-card-question.question-card {
+  background: color-mix(in srgb, var(--paper-strong) 94%, #000 6%);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.question-content {
+  gap: 28px;
+}
+
+.question-content > * {
+  width: min(100%, 64ch);
+}
+
+.part-stack {
+  gap: 8px;
+}
+
+.part-card {
+  padding: 18px 0 4px 0;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--line) 88%, transparent 12%);
+  border-radius: 0;
+  background: transparent;
+}
+
+.part-stack .part-card:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.part-label {
+  margin-bottom: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  letter-spacing: 0.14em;
+}
+
+.choice-grid {
+  gap: 2px;
+}
+
+.choice-button {
+  padding: 14px 0;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 84%, transparent 16%);
+  border-radius: 0;
+  background: transparent;
+}
+
+.choice-grid > :last-child.choice-button {
+  border-bottom: 0;
+}
+
+.choice-button:hover:not(:disabled) {
+  background: transparent;
+  border-color: color-mix(in srgb, var(--accent) 24%, var(--line) 76%);
+}
+
+.choice-button.selected,
+.choice-button.correct,
+.choice-button.incorrect {
+  border-radius: 14px;
+  padding-inline: 12px;
+  margin-inline: -12px;
+  border-bottom-color: transparent;
+}
+
+.choice-key {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+}
+
+.choice-text {
+  padding-top: 2px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.feedback-panel {
+  margin-top: 14px;
+  padding: 0 0 0 14px;
+  border: 0;
+  border-left: 2px solid color-mix(in srgb, var(--line-strong) 84%, transparent 16%);
+  border-radius: 0;
+  background: transparent;
+}
+
+.feedback-panel.correct {
+  border-left-color: rgba(77, 154, 122, 0.52);
+}
+
+.feedback-panel.incorrect {
+  border-left-color: rgba(203, 117, 80, 0.52);
+}
+
+.feedback-badge {
+  padding-inline: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.composer-card {
+  position: static;
+  gap: 10px;
+  padding: 16px 0 0;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--line) 88%, transparent 12%);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+html[data-theme="dark"] .composer-card {
+  box-shadow: none;
+}
+
+.action-row,
+.status-row {
+  gap: 8px;
+}
+
+@media (max-width: 1180px) {
+  .overview-stats.hero-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .record-item,
+  .empty-records {
+    padding: 10px 0;
+  }
+
+  .choice-button.selected,
+  .choice-button.correct,
+  .choice-button.incorrect {
+    margin-inline: 0;
+    padding-inline: 0;
+    border-radius: 0;
+  }
+
+  .turn-card-question.question-card {
+    padding: 24px 18px;
+  }
+}
