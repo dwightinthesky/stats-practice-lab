@@ -65,9 +65,9 @@
       </div>
     </div>
 
-    <div class="page-shell">
-      <header class="hero hero-docs">
-        <div class="hero-copy">
+    <div class="page-shell redesign-shell">
+      <header class="masthead">
+        <div class="masthead-copy">
           <div class="hero-topline">
             <p class="eyebrow">Statistics Practice</p>
             <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">
@@ -76,12 +76,11 @@
           </div>
           <h1>Stats Practice Lab</h1>
           <p class="hero-text">
-            Built from your compiled exam bank. Choose a question, solve it
-            first, then get immediate feedback and a saved history of your
-            progress.
+            A quieter workspace for working through your compiled statistics
+            bank with focus, feedback, and saved progress.
           </p>
         </div>
-        <div class="hero-panel hero-panel-wide">
+        <div class="masthead-stats hero-panel hero-panel-wide">
           <div class="stat-card">
             <span class="stat-label">Question Bank</span>
             <strong id="total-count">0</strong>
@@ -105,7 +104,7 @@
         </div>
       </header>
 
-      <main class="workspace">
+      <main class="workspace workspace-reboot">
         <aside class="control-panel docs-sidebar">
           <section class="panel-block">
             <div class="panel-heading">
@@ -169,44 +168,58 @@
           </section>
         </aside>
 
-        <section class="practice-stage docs-stage">
-          <div class="stage-topbar">
-            <div>
-              <p id="current-badge" class="current-badge">Question 1</p>
-              <h2 id="current-title">Loading...</h2>
+        <section class="practice-stage reboot-stage">
+          <div class="stage-main">
+            <div class="stage-topbar">
+              <div>
+                <p id="current-badge" class="current-badge">Question 1</p>
+                <h2 id="current-title">Loading...</h2>
+              </div>
+              <div class="progress-chip">
+                <span id="progress-text">0 / 0</span>
+              </div>
             </div>
-            <div class="progress-chip">
-              <span id="progress-text">0 / 0</span>
+
+            <div class="progress-rail">
+              <div id="progress-fill" class="progress-fill"></div>
             </div>
+
+            <article class="question-card">
+              <div id="question-content" class="question-content"></div>
+            </article>
           </div>
 
-          <div class="progress-rail">
-            <div id="progress-fill" class="progress-fill"></div>
-          </div>
+          <aside class="stage-rail">
+            <section class="rail-card rail-card-intro">
+              <p class="eyebrow">Study Controls</p>
+              <p class="rail-copy">
+                Move through the bank, reveal explanations when you need them,
+                and keep the questions you want to revisit close at hand.
+              </p>
+            </section>
 
-          <article class="question-card">
-            <div id="question-content" class="question-content"></div>
-          </article>
+            <section class="rail-card rail-card-actions">
+              <div class="action-row">
+                <button id="prev-button" type="button">Previous</button>
+                <button id="reveal-button" type="button" class="primary-button">
+                  Reveal All Explanations
+                </button>
+                <button id="next-button" type="button">Next</button>
+              </div>
 
-          <div class="action-row">
-            <button id="prev-button" type="button">Previous</button>
-            <button id="reveal-button" type="button" class="primary-button">
-              Reveal All Explanations
-            </button>
-            <button id="next-button" type="button">Next</button>
-          </div>
-
-          <div class="status-row">
-            <button id="mark-mastered-button" class="status-button mastered" type="button">
-              Mark Mastered
-            </button>
-            <button id="mark-review-button" class="status-button review" type="button">
-              Review Later
-            </button>
-            <button id="clear-status-button" class="status-button neutral" type="button">
-              Clear Status
-            </button>
-          </div>
+              <div class="status-row">
+                <button id="mark-mastered-button" class="status-button mastered" type="button">
+                  Mark Mastered
+                </button>
+                <button id="mark-review-button" class="status-button review" type="button">
+                  Review Later
+                </button>
+                <button id="clear-status-button" class="status-button neutral" type="button">
+                  Clear Status
+                </button>
+              </div>
+            </section>
+          </aside>
         </section>
       </main>
     </div>
