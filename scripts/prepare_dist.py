@@ -6,7 +6,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-FILES = ("index.html", "styles.css", "app.js", "questions.js", "_worker.js")
+FILES = (
+    "index.html",
+    "styles.css",
+    "claude-rounds.css",
+    "app.js",
+    "questions.js",
+    "_worker.js",
+)
 
 
 def main() -> None:
