@@ -78,3 +78,33 @@ html[data-theme="light"] body {
   max-width: 1520px;
   padding-top: 28px;
 }
+
+/* ROUND 03 — Editorial hero */
+.hero {
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 24px;
+}
+
+.hero-copy {
+  padding: 44px 46px 40px;
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.76), rgba(255, 249, 242, 0.68));
+}
+
+html[data-theme="dark"] .hero-copy {
+  background: linear-gradient(180deg, rgba(41, 34, 28, 0.92), rgba(29, 24, 20, 0.90));
+}
+
+.hero h1 {
+  max-width: 14ch;
+  font-size: clamp(29px, 3vw, 40px);
+  line-height: 1.08;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--ink);
+}
+
+.hero-text {
+  max-width: 46ch;
+  font-size: 16px;
+  line-height: 1.9;
+}
