@@ -410,3 +410,20 @@ html[data-theme="dark"] .feedback-panel {
   font-size: 22px;
   font-weight: 500;
 }
+
+/* ROUND 20 — Softer auth experience */
+.auth-overlay {
+  background: rgba(32, 24, 19, 0.18);
+}
+
+.auth-card {
+  width: min(100%, 480px);
+  padding: 40px 38px;
+  background: var(--paper-strong);
+}
+
+.auth-text,
+.auth-note {
+  font-size: 15px;
+  line-height: 1.75;
+}
