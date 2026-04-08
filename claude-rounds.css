@@ -571,3 +571,21 @@ html[data-theme="dark"] body {
 #jump-input {
   font-size: 14px;
 }
+
+/* ROUND 29 — Claude typography finish */
+.hero-text,
+.account-note,
+.shortcut-note,
+.record-meta,
+.record-timestamp,
+.part-hint,
+.auth-text,
+.auth-note {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.question-content .section-heading,
+.part-label {
+  letter-spacing: 0.2em;
+}
