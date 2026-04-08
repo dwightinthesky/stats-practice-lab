@@ -255,3 +255,22 @@ html[data-theme="dark"] .practice-stage {
 .question-intro {
   gap: 20px;
 }
+
+/* ROUND 11 — Part card separation */
+.part-stack {
+  gap: 20px;
+}
+
+.part-card {
+  padding: 26px 28px;
+  border-radius: 26px;
+  background: var(--paper);
+}
+
+.part-label {
+  padding: 0;
+  margin-bottom: 16px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+}
