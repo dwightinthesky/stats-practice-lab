@@ -589,3 +589,25 @@ html[data-theme="dark"] body {
 .part-label {
   letter-spacing: 0.2em;
 }
+
+/* ROUND 30 — Final polish */
+::selection {
+  background: rgba(194, 118, 84, 0.18);
+  color: var(--ink);
+}
+
+.hero-copy::before,
+.hero-copy::after {
+  filter: blur(24px);
+}
+
+.primary-button,
+.mini-button.primary {
+  border-radius: 999px;
+}
+
+.practice-stage,
+.question-card,
+.part-card {
+  backdrop-filter: blur(18px) saturate(108%);
+}
