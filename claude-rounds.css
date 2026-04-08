@@ -1,0 +1,32 @@
+/* Claude UI / UX refinement rounds
+   This file is intentionally layered in small iterations.
+   Later rounds override earlier ones. */
+
+
+/* ROUND 01 — Warm Claude foundation */
+:root {
+  --accent: #c27654;
+  --accent-mid: #aa6546;
+  --accent-deep: #8f5238;
+  --accent-soft: rgba(194, 118, 84, 0.12);
+  --accent-glow: rgba(194, 118, 84, 0.18);
+  --success: #4c9476;
+  --success-soft: rgba(76, 148, 118, 0.12);
+  --warm: #c46745;
+  --warm-soft: rgba(196, 103, 69, 0.12);
+}
+
+html[data-theme="light"] {
+  --bg: #f7f3eb;
+  --paper: rgba(255, 251, 245, 0.82);
+  --paper-strong: rgba(255, 252, 247, 0.96);
+  --ink: #2f261f;
+  --muted: #7a6c61;
+  --subtle: #d8ccc0;
+  --line: rgba(71, 54, 42, 0.10);
+  --line-strong: rgba(71, 54, 42, 0.18);
+  --accent: #be7353;
+  --accent-mid: #a86145;
+  --accent-deep: #8c5039;
+  --accent-soft: rgba(190, 115, 83, 0.11);
+}
