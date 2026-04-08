@@ -481,3 +481,28 @@ button,
 .feedback-panel {
   border-radius: 20px;
 }
+
+/* ROUND 24 — Mobile reading comfort */
+@media (max-width: 980px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .question-content > * {
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    gap: 16px;
+  }
+
+  .question-card {
+    padding: 30px 22px;
+  }
+
+  .part-card {
+    padding: 22px 20px;
+  }
+}
