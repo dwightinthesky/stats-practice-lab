@@ -37,7 +37,20 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Foundations",
+      "module": "Statistical thinking",
+      "concept": "Descriptive vs inferential statistics",
+      "tags": [
+        "descriptive statistics",
+        "inferential statistics",
+        "sampling"
+      ],
+      "conceptPath": "Foundations / Statistical thinking / Descriptive vs inferential statistics",
+      "familyId": "foundations",
+      "conceptId": "foundations-statistical-thinking-descriptive-vs-inferential-statistics"
+    }
   },
   {
     "id": 2,
@@ -79,7 +92,20 @@ window.STAT_QUESTIONS = [
           "A representative sample reflects the important characteristics of the population, which makes it useful for drawing conclusions through inferential statistics."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Foundations",
+      "module": "Sampling",
+      "concept": "Representative samples",
+      "tags": [
+        "representative sample",
+        "population",
+        "inference"
+      ],
+      "conceptPath": "Foundations / Sampling / Representative samples",
+      "familyId": "foundations",
+      "conceptId": "foundations-sampling-representative-samples"
+    }
   },
   {
     "id": 3,
@@ -158,7 +184,20 @@ window.STAT_QUESTIONS = [
           "Even after being coded as numbers, the values still only represent categories, so they remain qualitative rather than quantitative."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Foundations",
+      "module": "Data types",
+      "concept": "Qualitative vs quantitative data",
+      "tags": [
+        "categorical data",
+        "coded data",
+        "qualitative vs quantitative"
+      ],
+      "conceptPath": "Foundations / Data types / Qualitative vs quantitative data",
+      "familyId": "foundations",
+      "conceptId": "foundations-data-types-qualitative-vs-quantitative-data"
+    }
   },
   {
     "id": 4,
@@ -412,7 +451,21 @@ window.STAT_QUESTIONS = [
           "Telephone polling can miss people without phone access or those who refuse to answer, so the sample may not fully represent the population."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Foundations",
+      "module": "Study design",
+      "concept": "Population, sample, variable, and inference",
+      "tags": [
+        "population",
+        "sample",
+        "variable of interest",
+        "survey bias"
+      ],
+      "conceptPath": "Foundations / Study design / Population, sample, variable, and inference",
+      "familyId": "foundations",
+      "conceptId": "foundations-study-design-population-sample-variable-and-inference"
+    }
   },
   {
     "id": 5,
@@ -478,7 +531,20 @@ window.STAT_QUESTIONS = [
           "The two largest categories are small standard tenants and anchor tenants, and together they account for most of the stores."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Descriptive statistics",
+      "module": "Categorical displays",
+      "concept": "Pareto charts",
+      "tags": [
+        "Pareto diagram",
+        "categorical frequency",
+        "interpretation"
+      ],
+      "conceptPath": "Descriptive statistics / Categorical displays / Pareto charts",
+      "familyId": "descriptive-statistics",
+      "conceptId": "descriptive-statistics-categorical-displays-pareto-charts"
+    }
   },
   {
     "id": 6,
@@ -562,7 +628,20 @@ window.STAT_QUESTIONS = [
           "The correct dot plot must show one dot at 0, one at 5, one at 6, one at 10, two at 14, one at 18, one at 24, three at 28, one at 37, and two at 38, which matches option B."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Descriptive statistics",
+      "module": "Data displays",
+      "concept": "Stem-and-leaf plots and dot plots",
+      "tags": [
+        "stem-and-leaf",
+        "dot plot",
+        "raw data reconstruction"
+      ],
+      "conceptPath": "Descriptive statistics / Data displays / Stem-and-leaf plots and dot plots",
+      "familyId": "descriptive-statistics",
+      "conceptId": "descriptive-statistics-data-displays-stem-and-leaf-plots-and-dot-plots"
+    }
   },
   {
     "id": 7,
@@ -696,7 +775,21 @@ window.STAT_QUESTIONS = [
           "Since the mean (2.050) is slightly greater than the median (2.000), and both are greater than the mode (1.41), the distribution is skewed to the right. This matches histogram A."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Descriptive statistics",
+      "module": "Center and shape",
+      "concept": "Mean, median, mode, and skewness",
+      "tags": [
+        "mean",
+        "median",
+        "mode",
+        "skewness"
+      ],
+      "conceptPath": "Descriptive statistics / Center and shape / Mean, median, mode, and skewness",
+      "familyId": "descriptive-statistics",
+      "conceptId": "descriptive-statistics-center-and-shape-mean-median-mode-and-skewness"
+    }
   },
   {
     "id": 8,
@@ -762,7 +855,21 @@ window.STAT_QUESTIONS = [
           "Condition B has the most variable permeability data because it has the largest values of the standard deviation, variance, and range."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Descriptive statistics",
+      "module": "Variability",
+      "concept": "Range, variance, and standard deviation",
+      "tags": [
+        "range",
+        "variance",
+        "standard deviation",
+        "spread"
+      ],
+      "conceptPath": "Descriptive statistics / Variability / Range, variance, and standard deviation",
+      "familyId": "descriptive-statistics",
+      "conceptId": "descriptive-statistics-variability-range-variance-and-standard-deviation"
+    }
   },
   {
     "id": 9,
@@ -824,7 +931,20 @@ window.STAT_QUESTIONS = [
           "The mean is the average score, and the pth percentile indicates that about p% of observations are below that value and about (100 - p)% are above it."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Descriptive statistics",
+      "module": "Position measures",
+      "concept": "Percentiles and quartile interpretation",
+      "tags": [
+        "percentiles",
+        "quartiles",
+        "interpretation"
+      ],
+      "conceptPath": "Descriptive statistics / Position measures / Percentiles and quartile interpretation",
+      "familyId": "descriptive-statistics",
+      "conceptId": "descriptive-statistics-position-measures-percentiles-and-quartile-interpretation"
+    }
   },
   {
     "id": 10,
@@ -877,7 +997,20 @@ window.STAT_QUESTIONS = [
           "Because the z-score is between -2 and 2, the value is not considered unusual and is not an outlier."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Descriptive statistics",
+      "module": "Standardized values",
+      "concept": "Z-scores and unusual observations",
+      "tags": [
+        "z-score",
+        "outlier",
+        "unusual value"
+      ],
+      "conceptPath": "Descriptive statistics / Standardized values / Z-scores and unusual observations",
+      "familyId": "descriptive-statistics",
+      "conceptId": "descriptive-statistics-standardized-values-z-scores-and-unusual-observations"
+    }
   },
   {
     "id": 11,
@@ -919,7 +1052,21 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Categorical analysis",
+      "module": "Contingency tables",
+      "concept": "Expected counts, chi-square, and Cramer's V",
+      "tags": [
+        "expected count",
+        "chi-square",
+        "Cramer's V",
+        "independence"
+      ],
+      "conceptPath": "Categorical analysis / Contingency tables / Expected counts, chi-square, and Cramer's V",
+      "familyId": "categorical-analysis",
+      "conceptId": "categorical-analysis-contingency-tables-expected-counts-chi-square-and-cramer-s-v"
+    }
   },
   {
     "id": 12,
@@ -1003,7 +1150,20 @@ window.STAT_QUESTIONS = [
           "There appear to be differences between males and females on 2 of the 3 response levels."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Categorical analysis",
+      "module": "Comparing groups",
+      "concept": "Conditional proportions in two-way tables",
+      "tags": [
+        "conditional proportion",
+        "gender comparison",
+        "two-way table"
+      ],
+      "conceptPath": "Categorical analysis / Comparing groups / Conditional proportions in two-way tables",
+      "familyId": "categorical-analysis",
+      "conceptId": "categorical-analysis-comparing-groups-conditional-proportions-in-two-way-tables"
+    }
   },
   {
     "id": 13,
@@ -1065,7 +1225,20 @@ window.STAT_QUESTIONS = [
           "y = -5x has a steep negative slope and passes through the origin."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Functions and graphs",
+      "module": "Linear equations",
+      "concept": "Graphing lines from slope-intercept form",
+      "tags": [
+        "line graph",
+        "slope",
+        "y-intercept"
+      ],
+      "conceptPath": "Functions and graphs / Linear equations / Graphing lines from slope-intercept form",
+      "familyId": "functions-and-graphs",
+      "conceptId": "functions-and-graphs-linear-equations-graphing-lines-from-slope-intercept-form"
+    }
   },
   {
     "id": 14,
@@ -1107,7 +1280,20 @@ window.STAT_QUESTIONS = [
           "The problem says the ratio of salary to worker pay is being predicted based on the CEO's age, so age is the predictor and the ratio is the response."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Regression",
+      "module": "Model setup",
+      "concept": "Explanatory and response variables",
+      "tags": [
+        "predictor",
+        "response",
+        "regression setup"
+      ],
+      "conceptPath": "Regression / Model setup / Explanatory and response variables",
+      "familyId": "regression",
+      "conceptId": "regression-model-setup-explanatory-and-response-variables"
+    }
   },
   {
     "id": 15,
@@ -1182,7 +1368,20 @@ window.STAT_QUESTIONS = [
           "The line has a positive slope and fits the pattern reasonably well because the data points do not vary very far from the line."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Regression",
+      "module": "Scatterplots and fit",
+      "concept": "Scatterplot trend and least-squares line",
+      "tags": [
+        "scatterplot",
+        "least squares",
+        "fit interpretation"
+      ],
+      "conceptPath": "Regression / Scatterplots and fit / Scatterplot trend and least-squares line",
+      "familyId": "regression",
+      "conceptId": "regression-scatterplots-and-fit-scatterplot-trend-and-least-squares-line"
+    }
   },
   {
     "id": 16,
@@ -1280,7 +1479,21 @@ window.STAT_QUESTIONS = [
           "The interpretation is valid only for sit-ins with durations within the range of the sample data, which is from 1 to 4 days."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Regression",
+      "module": "Simple linear regression",
+      "concept": "Regression equation, intercept, slope, and scope",
+      "tags": [
+        "regression equation",
+        "intercept",
+        "slope",
+        "practical interpretation"
+      ],
+      "conceptPath": "Regression / Simple linear regression / Regression equation, intercept, slope, and scope",
+      "familyId": "regression",
+      "conceptId": "regression-simple-linear-regression-regression-equation-intercept-slope-and-scope"
+    }
   },
   {
     "id": 17,
@@ -1360,7 +1573,20 @@ window.STAT_QUESTIONS = [
           "Substituting x = 26 into the least squares line gives y_hat = -19.7146 + 0.8242(26) = 1.7148, which rounds to 1.71."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Regression",
+      "module": "Prediction",
+      "concept": "Fit a line and predict a response",
+      "tags": [
+        "prediction",
+        "least squares",
+        "software millionaires"
+      ],
+      "conceptPath": "Regression / Prediction / Fit a line and predict a response",
+      "familyId": "regression",
+      "conceptId": "regression-prediction-fit-a-line-and-predict-a-response"
+    }
   },
   {
     "id": 18,
@@ -1421,7 +1647,20 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Regression",
+      "module": "Scatterplot association",
+      "concept": "Linear trend direction and slope sign",
+      "tags": [
+        "linear trend",
+        "scatterplot",
+        "positive/negative slope"
+      ],
+      "conceptPath": "Regression / Scatterplot association / Linear trend direction and slope sign",
+      "familyId": "regression",
+      "conceptId": "regression-scatterplot-association-linear-trend-direction-and-slope-sign"
+    }
   },
   {
     "id": 19,
@@ -1475,7 +1714,20 @@ window.STAT_QUESTIONS = [
           "P(B ∪ D) = P(B) + P(D) - P(B ∩ D) = 0.5 + 0.4 - 0.3 = 0.6."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Probability",
+      "module": "Basic rules",
+      "concept": "Complements and unions",
+      "tags": [
+        "complement",
+        "union",
+        "intersection"
+      ],
+      "conceptPath": "Probability / Basic rules / Complements and unions",
+      "familyId": "probability",
+      "conceptId": "probability-basic-rules-complements-and-unions"
+    }
   },
   {
     "id": 20,
@@ -1586,7 +1838,20 @@ window.STAT_QUESTIONS = [
           "P(male or poorly fitting) = P(male) + P(poorly fitting) - P(male and poorly fitting) = 544/591 + 165/591 - 140/591 = 569/591 = 0.963."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Probability",
+      "module": "Two-way tables",
+      "concept": "Joint, marginal, and union probabilities",
+      "tags": [
+        "joint probability",
+        "marginal probability",
+        "union"
+      ],
+      "conceptPath": "Probability / Two-way tables / Joint, marginal, and union probabilities",
+      "familyId": "probability",
+      "conceptId": "probability-two-way-tables-joint-marginal-and-union-probabilities"
+    }
   },
   {
     "id": 21,
@@ -1642,7 +1907,20 @@ window.STAT_QUESTIONS = [
           "The complement of visiting either network is 1 - 0.22 = 0.78."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Probability",
+      "module": "Venn diagrams",
+      "concept": "Visualizing overlap with unions and complements",
+      "tags": [
+        "Venn diagram",
+        "union",
+        "complement"
+      ],
+      "conceptPath": "Probability / Venn diagrams / Visualizing overlap with unions and complements",
+      "familyId": "probability",
+      "conceptId": "probability-venn-diagrams-visualizing-overlap-with-unions-and-complements"
+    }
   },
   {
     "id": 22,
@@ -1698,7 +1976,20 @@ window.STAT_QUESTIONS = [
           "The events are independent because P(A|B) = 0.4 = P(A)."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Probability",
+      "module": "Conditional probability",
+      "concept": "Conditional probability and independence",
+      "tags": [
+        "P(A|B)",
+        "independence",
+        "conditional probability"
+      ],
+      "conceptPath": "Probability / Conditional probability / Conditional probability and independence",
+      "familyId": "probability",
+      "conceptId": "probability-conditional-probability-conditional-probability-and-independence"
+    }
   },
   {
     "id": 23,
@@ -1730,7 +2021,20 @@ window.STAT_QUESTIONS = [
           "P(D|N) = P(D and N) / P(N) = (1/168) / (167/168) = 1/167 ≈ 0.0060."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Probability",
+      "module": "Bayes theorem",
+      "concept": "Posterior probability from diagnostic information",
+      "tags": [
+        "Bayes theorem",
+        "tree diagram",
+        "posterior probability"
+      ],
+      "conceptPath": "Probability / Bayes theorem / Posterior probability from diagnostic information",
+      "familyId": "probability",
+      "conceptId": "probability-bayes-theorem-posterior-probability-from-diagnostic-information"
+    }
   },
   {
     "id": 24,
@@ -1791,7 +2095,20 @@ window.STAT_QUESTIONS = [
           "The events are not independent because P(B|A) = 0.545 is not equal to P(B) = 0.16; workers who exhibit arrogant behaviors are more likely to receive a poor performance rating."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Probability",
+      "module": "Event relationships",
+      "concept": "Mutually exclusive events vs independent events",
+      "tags": [
+        "mutually exclusive",
+        "independence",
+        "conditional probability"
+      ],
+      "conceptPath": "Probability / Event relationships / Mutually exclusive events vs independent events",
+      "familyId": "probability",
+      "conceptId": "probability-event-relationships-mutually-exclusive-events-vs-independent-events"
+    }
   },
   {
     "id": 25,
@@ -1822,7 +2139,20 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Random variables",
+      "module": "Discrete distributions",
+      "concept": "Profit distributions from uncertain demand",
+      "tags": [
+        "discrete random variable",
+        "profit",
+        "distribution table"
+      ],
+      "conceptPath": "Random variables / Discrete distributions / Profit distributions from uncertain demand",
+      "familyId": "random-variables",
+      "conceptId": "random-variables-discrete-distributions-profit-distributions-from-uncertain-demand"
+    }
   },
   {
     "id": 26,
@@ -1858,7 +2188,20 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Random variables",
+      "module": "Expected value",
+      "concept": "Expected price and long-run budgeting",
+      "tags": [
+        "expected value",
+        "budgeting",
+        "weighted average"
+      ],
+      "conceptPath": "Random variables / Expected value / Expected price and long-run budgeting",
+      "familyId": "random-variables",
+      "conceptId": "random-variables-expected-value-expected-price-and-long-run-budgeting"
+    }
   },
   {
     "id": 27,
@@ -1915,7 +2258,20 @@ window.STAT_QUESTIONS = [
           "P(x ≤ 23) = p(22) + p(23) = 0.10 + 0.15 = 0.25."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Random variables",
+      "module": "Discrete distributions",
+      "concept": "Read probabilities from a histogram",
+      "tags": [
+        "discrete distribution",
+        "histogram",
+        "probability"
+      ],
+      "conceptPath": "Random variables / Discrete distributions / Read probabilities from a histogram",
+      "familyId": "random-variables",
+      "conceptId": "random-variables-discrete-distributions-read-probabilities-from-a-histogram"
+    }
   },
   {
     "id": 28,
@@ -1970,7 +2326,21 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Random variables",
+      "module": "Poisson distribution",
+      "concept": "Poisson probabilities and moments",
+      "tags": [
+        "Poisson",
+        "mean",
+        "standard deviation",
+        "P(X=x)"
+      ],
+      "conceptPath": "Random variables / Poisson distribution / Poisson probabilities and moments",
+      "familyId": "random-variables",
+      "conceptId": "random-variables-poisson-distribution-poisson-probabilities-and-moments"
+    }
   },
   {
     "id": 29,
@@ -2012,7 +2382,20 @@ window.STAT_QUESTIONS = [
           "The mean of 7.5 represents the long-run arithmetic average number of tickets written per day."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Random variables",
+      "module": "Poisson distribution",
+      "concept": "Interpreting the Poisson mean",
+      "tags": [
+        "Poisson mean",
+        "expected value",
+        "interpretation"
+      ],
+      "conceptPath": "Random variables / Poisson distribution / Interpreting the Poisson mean",
+      "familyId": "random-variables",
+      "conceptId": "random-variables-poisson-distribution-interpreting-the-poisson-mean"
+    }
   },
   {
     "id": 30,
@@ -2068,7 +2451,21 @@ window.STAT_QUESTIONS = [
           "a = 8.38 + (-0.5244)(2.05) ≈ 7.3050, which rounds to 7.30."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Normal model",
+      "module": "Normal probabilities",
+      "concept": "Probabilities and quantiles under a normal distribution",
+      "tags": [
+        "normal distribution",
+        "z-score",
+        "percentile",
+        "quantile"
+      ],
+      "conceptPath": "Normal model / Normal probabilities / Probabilities and quantiles under a normal distribution",
+      "familyId": "normal-model",
+      "conceptId": "normal-model-normal-probabilities-probabilities-and-quantiles-under-a-normal-distribution"
+    }
   },
   {
     "id": 31,
@@ -2110,7 +2507,21 @@ window.STAT_QUESTIONS = [
           "For an approximately normal data set, about 68% of observations should lie within x̄ ± 1s, while about 95% should lie within x̄ ± 2s. So having only 68% within x̄ ± 2s suggests the data are not approximately normal."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Normal model",
+      "module": "Normality checks",
+      "concept": "Identify evidence against approximate normality",
+      "tags": [
+        "normality",
+        "QQ plot",
+        "empirical rule",
+        "IQR/s"
+      ],
+      "conceptPath": "Normal model / Normality checks / Identify evidence against approximate normality",
+      "familyId": "normal-model",
+      "conceptId": "normal-model-normality-checks-identify-evidence-against-approximate-normality"
+    }
   },
   {
     "id": 32,
@@ -2167,7 +2578,20 @@ window.STAT_QUESTIONS = [
           "For data from an approximately normal distribution, IQR/s is often close to 1.3. Since 0.641 is not close to 1.3, this suggests the data may not be from an approximately normal distribution."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Normal model",
+      "module": "Normality checks",
+      "concept": "IQR-to-standard-deviation diagnostic",
+      "tags": [
+        "IQR/s",
+        "normality check",
+        "approximate normal"
+      ],
+      "conceptPath": "Normal model / Normality checks / IQR-to-standard-deviation diagnostic",
+      "familyId": "normal-model",
+      "conceptId": "normal-model-normality-checks-iqr-to-standard-deviation-diagnostic"
+    }
   },
   {
     "id": 33,
@@ -2191,7 +2615,20 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Normal model",
+      "module": "Model choice",
+      "concept": "Use a histogram to decide whether a normal model is appropriate",
+      "tags": [
+        "histogram",
+        "model choice",
+        "normal approximation"
+      ],
+      "conceptPath": "Normal model / Model choice / Use a histogram to decide whether a normal model is appropriate",
+      "familyId": "normal-model",
+      "conceptId": "normal-model-model-choice-use-a-histogram-to-decide-whether-a-normal-model-is-appropriate"
+    }
   },
   {
     "id": 34,
@@ -2256,7 +2693,20 @@ window.STAT_QUESTIONS = [
           "P(Y ≥ 2.5) ≈ 0.833539..., which rounds to 0.8335."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Sampling distributions",
+      "module": "Normal approximation",
+      "concept": "Approximating a binomial distribution with a normal curve",
+      "tags": [
+        "normal approximation",
+        "binomial",
+        "continuity correction"
+      ],
+      "conceptPath": "Sampling distributions / Normal approximation / Approximating a binomial distribution with a normal curve",
+      "familyId": "sampling-distributions",
+      "conceptId": "sampling-distributions-normal-approximation-approximating-a-binomial-distribution-with-a-normal-curve"
+    }
   },
   {
     "id": 35,
@@ -2298,7 +2748,20 @@ window.STAT_QUESTIONS = [
           "The sampling distribution of x̄ is not always approximately normal; the Central Limit Theorem says it becomes approximately normal when the sample size is sufficiently large."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Sampling distributions",
+      "module": "Central Limit Theorem",
+      "concept": "When the sampling distribution of x-bar is approximately normal",
+      "tags": [
+        "CLT",
+        "sampling distribution",
+        "x-bar"
+      ],
+      "conceptPath": "Sampling distributions / Central Limit Theorem / When the sampling distribution of x-bar is approximately normal",
+      "familyId": "sampling-distributions",
+      "conceptId": "sampling-distributions-central-limit-theorem-when-the-sampling-distribution-of-x-bar-is-approximately-normal"
+    }
   },
   {
     "id": 36,
@@ -2341,7 +2804,20 @@ window.STAT_QUESTIONS = [
           "All of the histograms are centered at about the same mean and have an approximately normal shape, with the normal shape becoming more pronounced as n increases."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Sampling distributions",
+      "module": "Central Limit Theorem",
+      "concept": "How sample size changes the shape of the x-bar distribution",
+      "tags": [
+        "CLT",
+        "histogram",
+        "sample size effect"
+      ],
+      "conceptPath": "Sampling distributions / Central Limit Theorem / How sample size changes the shape of the x-bar distribution",
+      "familyId": "sampling-distributions",
+      "conceptId": "sampling-distributions-central-limit-theorem-how-sample-size-changes-the-shape-of-the-x-bar-distribution"
+    }
   },
   {
     "id": 37,
@@ -2373,7 +2849,20 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Sampling distributions",
+      "module": "Comparing populations",
+      "concept": "Use sample-mean behavior to infer which population is more plausible",
+      "tags": [
+        "sampling distribution",
+        "x-bar",
+        "compare populations"
+      ],
+      "conceptPath": "Sampling distributions / Comparing populations / Use sample-mean behavior to infer which population is more plausible",
+      "familyId": "sampling-distributions",
+      "conceptId": "sampling-distributions-comparing-populations-use-sample-mean-behavior-to-infer-which-population-is-more-plausible"
+    }
   },
   {
     "id": 38,
@@ -2460,7 +2949,20 @@ window.STAT_QUESTIONS = [
           "P(x̄ > 70000) = P(Z > -2.73) ≈ 0.9968, which rounds to 0.997."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Sampling distributions",
+      "module": "Sample mean",
+      "concept": "Mean, standard error, z-score, and probability for x-bar",
+      "tags": [
+        "standard error",
+        "z-score",
+        "sample mean"
+      ],
+      "conceptPath": "Sampling distributions / Sample mean / Mean, standard error, z-score, and probability for x-bar",
+      "familyId": "sampling-distributions",
+      "conceptId": "sampling-distributions-sample-mean-mean-standard-error-z-score-and-probability-for-x-bar"
+    }
   },
   {
     "id": 39,
@@ -2535,7 +3037,21 @@ window.STAT_QUESTIONS = [
           "P(p̂ > 0.41) = P(Z > 0.19) ≈ 0.4245."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Sampling distributions",
+      "module": "Sample proportion",
+      "concept": "Mean, standard deviation, z-score, and probability for p-hat",
+      "tags": [
+        "sample proportion",
+        "p-hat",
+        "standard deviation",
+        "z-score"
+      ],
+      "conceptPath": "Sampling distributions / Sample proportion / Mean, standard deviation, z-score, and probability for p-hat",
+      "familyId": "sampling-distributions",
+      "conceptId": "sampling-distributions-sample-proportion-mean-standard-deviation-z-score-and-probability-for-p-hat"
+    }
   },
   {
     "id": 40,
@@ -2577,7 +3093,20 @@ window.STAT_QUESTIONS = [
           "A point estimator is a single sample-based value used to estimate a population parameter, while an interval estimator gives a range of likely values for that parameter with a specified confidence level."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Estimation",
+      "module": "Estimator concepts",
+      "concept": "Point estimators vs interval estimators",
+      "tags": [
+        "point estimate",
+        "interval estimate",
+        "parameter"
+      ],
+      "conceptPath": "Estimation / Estimator concepts / Point estimators vs interval estimators",
+      "familyId": "estimation",
+      "conceptId": "estimation-estimator-concepts-point-estimators-vs-interval-estimators"
+    }
   },
   {
     "id": 41,
@@ -2619,7 +3148,20 @@ window.STAT_QUESTIONS = [
           "For large samples, the Central Limit Theorem implies that the sampling distribution of the estimator is approximately normal, so the large-sample confidence interval can still be valid even if the population itself is not normally distributed."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Estimation",
+      "module": "Confidence interval assumptions",
+      "concept": "Large-sample confidence intervals and the Central Limit Theorem",
+      "tags": [
+        "confidence interval",
+        "large sample",
+        "CLT"
+      ],
+      "conceptPath": "Estimation / Confidence interval assumptions / Large-sample confidence intervals and the Central Limit Theorem",
+      "familyId": "estimation",
+      "conceptId": "estimation-confidence-interval-assumptions-large-sample-confidence-intervals-and-the-central-limit-theorem"
+    }
   },
   {
     "id": 42,
@@ -2697,7 +3239,20 @@ window.STAT_QUESTIONS = [
           "A smaller confidence coefficient gives a smaller critical value, which produces a narrower confidence interval."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Estimation",
+      "module": "Confidence interval interpretation",
+      "concept": "Confidence coefficients, interpretation, and width",
+      "tags": [
+        "confidence coefficient",
+        "confidence interval",
+        "margin of error"
+      ],
+      "conceptPath": "Estimation / Confidence interval interpretation / Confidence coefficients, interpretation, and width",
+      "familyId": "estimation",
+      "conceptId": "estimation-confidence-interval-interpretation-confidence-coefficients-interpretation-and-width"
+    }
   },
   {
     "id": 43,
@@ -2797,7 +3352,21 @@ window.STAT_QUESTIONS = [
           "Because the sample size is large (n = 100) and the sample is randomly selected, the sampling distribution of x̄ is approximately normal by the Central Limit Theorem."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Estimation",
+      "module": "Confidence intervals for a mean",
+      "concept": "Construct and compare 95% and 99% intervals for mu",
+      "tags": [
+        "mean CI",
+        "95%",
+        "99%",
+        "critical value"
+      ],
+      "conceptPath": "Estimation / Confidence intervals for a mean / Construct and compare 95% and 99% intervals for mu",
+      "familyId": "estimation",
+      "conceptId": "estimation-confidence-intervals-for-a-mean-construct-and-compare-95-and-99-intervals-for-mu"
+    }
   },
   {
     "id": 44,
@@ -2843,7 +3412,20 @@ window.STAT_QUESTIONS = [
           "The width of a confidence interval is proportional to 1 / sqrt(n). If n is multiplied by 4, the width is divided by sqrt(4) = 2."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Estimation",
+      "module": "Margin of error",
+      "concept": "How sample size changes confidence-interval width",
+      "tags": [
+        "sample size",
+        "confidence interval width",
+        "margin of error"
+      ],
+      "conceptPath": "Estimation / Margin of error / How sample size changes confidence-interval width",
+      "familyId": "estimation",
+      "conceptId": "estimation-margin-of-error-how-sample-size-changes-confidence-interval-width"
+    }
   },
   {
     "id": 45,
@@ -2902,7 +3484,20 @@ window.STAT_QUESTIONS = [
           "We are 95% confident that the true proportion of drivers using cell phones while driving lies within this interval."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Estimation",
+      "module": "Confidence intervals for a proportion",
+      "concept": "Point estimate and 95% confidence interval for p",
+      "tags": [
+        "proportion CI",
+        "point estimate",
+        "interpretation"
+      ],
+      "conceptPath": "Estimation / Confidence intervals for a proportion / Point estimate and 95% confidence interval for p",
+      "familyId": "estimation",
+      "conceptId": "estimation-confidence-intervals-for-a-proportion-point-estimate-and-95-confidence-interval-for-p"
+    }
   },
   {
     "id": 46,
@@ -2929,7 +3524,20 @@ window.STAT_QUESTIONS = [
           "Rounding up to the nearest observation gives n = 41."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Estimation",
+      "module": "Confidence intervals for a proportion",
+      "concept": "Recover sample size from a confidence interval for p",
+      "tags": [
+        "sample size",
+        "proportion CI",
+        "margin of error"
+      ],
+      "conceptPath": "Estimation / Confidence intervals for a proportion / Recover sample size from a confidence interval for p",
+      "familyId": "estimation",
+      "conceptId": "estimation-confidence-intervals-for-a-proportion-recover-sample-size-from-a-confidence-interval-for-p"
+    }
   },
   {
     "id": 47,
@@ -2962,7 +3570,20 @@ window.STAT_QUESTIONS = [
           "Since the p-value is about 0.136, there is sufficient evidence to reject H0 when alpha > 0.136. In particular, for alpha = 0.15, we would reject H0. This matches option D as stated in the choices."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Hypothesis testing",
+      "module": "One-sample mean tests",
+      "concept": "Two-tailed p-value and decision for a mean",
+      "tags": [
+        "p-value",
+        "two-tailed test",
+        "mean hypothesis test"
+      ],
+      "conceptPath": "Hypothesis testing / One-sample mean tests / Two-tailed p-value and decision for a mean",
+      "familyId": "hypothesis-testing",
+      "conceptId": "hypothesis-testing-one-sample-mean-tests-two-tailed-p-value-and-decision-for-a-mean"
+    }
   },
   {
     "id": 48,
@@ -3082,7 +3703,21 @@ window.STAT_QUESTIONS = [
           "With a very large sample size (n = 971), the sampling distribution of the sample mean is approximately normal by the Central Limit Theorem, so no normality assumption about the original distribution is needed here."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Hypothesis testing",
+      "module": "One-sample z tests",
+      "concept": "Null and alternative hypotheses, Type I/II errors, and assumptions",
+      "tags": [
+        "one-sample z test",
+        "Type I error",
+        "Type II error",
+        "assumptions"
+      ],
+      "conceptPath": "Hypothesis testing / One-sample z tests / Null and alternative hypotheses, Type I/II errors, and assumptions",
+      "familyId": "hypothesis-testing",
+      "conceptId": "hypothesis-testing-one-sample-z-tests-null-and-alternative-hypotheses-type-i-ii-errors-and-assumptions"
+    }
   },
   {
     "id": 49,
@@ -3148,7 +3783,21 @@ window.STAT_QUESTIONS = [
           "For the same test statistic, the two-tailed p-value is double the one-tailed p-value: 2(0.036) = 0.072. Since 0.072 > 0.05, the null hypothesis is not rejected, and there is insufficient evidence to support Ha: mu ≠ 2000."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Hypothesis testing",
+      "module": "One-sample t tests",
+      "concept": "One-tailed vs two-tailed p-values with a t statistic",
+      "tags": [
+        "one-sample t test",
+        "one-tailed",
+        "two-tailed",
+        "p-value"
+      ],
+      "conceptPath": "Hypothesis testing / One-sample t tests / One-tailed vs two-tailed p-values with a t statistic",
+      "familyId": "hypothesis-testing",
+      "conceptId": "hypothesis-testing-one-sample-t-tests-one-tailed-vs-two-tailed-p-values-with-a-t-statistic"
+    }
   },
   {
     "id": 50,
@@ -3279,7 +3928,21 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Hypothesis testing",
+      "module": "One-sample proportion tests",
+      "concept": "Upper-tailed z test for a population proportion",
+      "tags": [
+        "proportion test",
+        "upper-tailed",
+        "z test",
+        "rejection region"
+      ],
+      "conceptPath": "Hypothesis testing / One-sample proportion tests / Upper-tailed z test for a population proportion",
+      "familyId": "hypothesis-testing",
+      "conceptId": "hypothesis-testing-one-sample-proportion-tests-upper-tailed-z-test-for-a-population-proportion"
+    }
   },
   {
     "id": 51,
@@ -3309,7 +3972,20 @@ window.STAT_QUESTIONS = [
           "The two samples must be independent of each other. There is no requirement here that each sample size exceed 30, and normality is assumed for the populations rather than the samples themselves."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Hypothesis testing",
+      "module": "Two-sample mean tests",
+      "concept": "Assumptions for the pooled small-sample t procedure",
+      "tags": [
+        "pooled t test",
+        "equal variances",
+        "assumptions"
+      ],
+      "conceptPath": "Hypothesis testing / Two-sample mean tests / Assumptions for the pooled small-sample t procedure",
+      "familyId": "hypothesis-testing",
+      "conceptId": "hypothesis-testing-two-sample-mean-tests-assumptions-for-the-pooled-small-sample-t-procedure"
+    }
   },
   {
     "id": 52,
@@ -3367,7 +4043,20 @@ window.STAT_QUESTIONS = [
           "With 90% confidence, the true difference (mu1 - mu2) lies within (-4.15, 0.95). Because this interval contains 0, there is insufficient evidence to conclude that (mu1 - mu2) differs from 0."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Hypothesis testing",
+      "module": "Two-sample mean tests",
+      "concept": "Pooled t test and confidence interval for mu1 minus mu2",
+      "tags": [
+        "pooled t test",
+        "mu1 - mu2",
+        "confidence interval"
+      ],
+      "conceptPath": "Hypothesis testing / Two-sample mean tests / Pooled t test and confidence interval for mu1 minus mu2",
+      "familyId": "hypothesis-testing",
+      "conceptId": "hypothesis-testing-two-sample-mean-tests-pooled-t-test-and-confidence-interval-for-mu1-minus-mu2"
+    }
   },
   {
     "id": 53,
@@ -3412,7 +4101,20 @@ window.STAT_QUESTIONS = [
           "A two-tailed p-value of 0.116 implies a one-tailed tail area of 0.0580 only if the observed test statistic is in the direction of the alternative hypothesis. If the test statistic points in the opposite direction, the one-tailed p-value would instead be 0.9420. Since the sign of the test statistic is not provided, there is not enough information to determine the new p-value or choose between the two directional conclusions."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Hypothesis testing",
+      "module": "Two-sample mean tests",
+      "concept": "Interpret a p-value for two-sided and one-sided mean comparisons",
+      "tags": [
+        "two-sample means",
+        "p-value",
+        "one-sided vs two-sided"
+      ],
+      "conceptPath": "Hypothesis testing / Two-sample mean tests / Interpret a p-value for two-sided and one-sided mean comparisons",
+      "familyId": "hypothesis-testing",
+      "conceptId": "hypothesis-testing-two-sample-mean-tests-interpret-a-p-value-for-two-sided-and-one-sided-mean-comparisons"
+    }
   },
   {
     "id": 54,
@@ -3536,7 +4238,20 @@ window.STAT_QUESTIONS = [
           "Yes. Because the lower limit of the confidence interval is greater than 0.01, the entire interval exceeds the threshold for practical significance."
         ]
       }
-    ]
+    ],
+    "classification": {
+      "family": "Hypothesis testing",
+      "module": "Two-proportion inference",
+      "concept": "Confidence interval plus statistical and practical significance for p1 minus p2",
+      "tags": [
+        "two-proportion CI",
+        "practical significance",
+        "statistical significance"
+      ],
+      "conceptPath": "Hypothesis testing / Two-proportion inference / Confidence interval plus statistical and practical significance for p1 minus p2",
+      "familyId": "hypothesis-testing",
+      "conceptId": "hypothesis-testing-two-proportion-inference-confidence-interval-plus-statistical-and-practical-significance-for-p1-minus-p2"
+    }
   },
   {
     "id": 55,
@@ -3617,6 +4332,19 @@ window.STAT_QUESTIONS = [
         ],
         "explanation": []
       }
-    ]
+    ],
+    "classification": {
+      "family": "Hypothesis testing",
+      "module": "Two-proportion tests",
+      "concept": "Upper-tailed test for whether p1 exceeds p2",
+      "tags": [
+        "two-proportion test",
+        "upper-tailed",
+        "p1 - p2"
+      ],
+      "conceptPath": "Hypothesis testing / Two-proportion tests / Upper-tailed test for whether p1 exceeds p2",
+      "familyId": "hypothesis-testing",
+      "conceptId": "hypothesis-testing-two-proportion-tests-upper-tailed-test-for-whether-p1-exceeds-p2"
+    }
   }
 ];

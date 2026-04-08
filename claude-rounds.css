@@ -3399,3 +3399,27 @@ html[data-theme="dark"] #current-title {
     line-height: 1.52;
   }
 }
+
+/* CONCEPT PRACTICE FILTERS */
+#concept-summary {
+  margin-top: 10px;
+}
+
+.question-list-item small {
+  display: block;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+#current-concept-path {
+  margin: 12px 0 0;
+  max-width: 58ch;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--muted) 88%, var(--ink) 12%);
+  letter-spacing: 0;
+}
+
+html[data-theme="dark"] #current-concept-path {
+  color: color-mix(in srgb, var(--muted) 80%, white 20%);
+}

@@ -41,11 +41,15 @@ const elements = {
   jumpInput: document.getElementById("jump-input"),
   jumpButton: document.getElementById("jump-button"),
   searchInput: document.getElementById("search-input"),
+  familySelect: document.getElementById("family-select"),
+  conceptSelect: document.getElementById("concept-select"),
+  conceptSummary: document.getElementById("concept-summary"),
   randomButton: document.getElementById("random-button"),
   resetProgressButton: document.getElementById("reset-progress-button"),
   questionList: document.getElementById("question-list"),
   currentBadge: document.getElementById("current-badge"),
   currentTitle: document.getElementById("current-title"),
+  currentConceptPath: document.getElementById("current-concept-path"),
   progressText: document.getElementById("progress-text"),
   progressFill: document.getElementById("progress-fill"),
   questionContent: document.getElementById("question-content"),
@@ -122,6 +126,89 @@ function findPart(questionId, partId) {
   return question?.parts.find((part) => part.id === partId) || null;
 }
 
+function classificationFor(question) {
+  return (
+    question.classification || {
+      family: "Uncategorized",
+      module: "General",
+      concept: "General practice",
+      conceptPath: "Uncategorized / General / General practice",
+      conceptId: "uncategorized-general-practice",
+      tags: []
+    }
+  );
+}
+
+function orderedUniqueBy(items, keyFn) {
+  const seen = new Set();
+  const result = [];
+  items.forEach((item) => {
+    const key = keyFn(item);
+    if (!seen.has(key)) {
+      seen.add(key);
+      result.push(item);
+    }
+  });
+  return result;
+}
+
+function allFamilies() {
+  return orderedUniqueBy(
+    state.questions.map((question) => classificationFor(question).family),
+    (family) => family
+  );
+}
+
+function allConcepts(selectedFamily = "") {
+  const concepts = state.questions
+    .map((question) => classificationFor(question))
+    .filter((classification) => !selectedFamily || classification.family === selectedFamily);
+  return orderedUniqueBy(concepts, (classification) => classification.conceptId);
+}
+
+function populateFamilyOptions() {
+  const currentValue = elements.familySelect.value;
+  const families = allFamilies();
+  elements.familySelect.innerHTML = "";
+
+  const allOption = document.createElement("option");
+  allOption.value = "";
+  allOption.textContent = "All families";
+  elements.familySelect.appendChild(allOption);
+
+  families.forEach((family) => {
+    const option = document.createElement("option");
+    option.value = family;
+    option.textContent = family;
+    elements.familySelect.appendChild(option);
+  });
+
+  elements.familySelect.value = families.includes(currentValue) ? currentValue : "";
+}
+
+function populateConceptOptions() {
+  const currentValue = elements.conceptSelect.value;
+  const selectedFamily = elements.familySelect.value;
+  const concepts = allConcepts(selectedFamily);
+  elements.conceptSelect.innerHTML = "";
+
+  const allOption = document.createElement("option");
+  allOption.value = "";
+  allOption.textContent = selectedFamily ? `All ${selectedFamily} concepts` : "All concepts";
+  elements.conceptSelect.appendChild(allOption);
+
+  concepts.forEach((classification) => {
+    const option = document.createElement("option");
+    option.value = classification.conceptId;
+    option.textContent = `${classification.module} · ${classification.concept}`;
+    elements.conceptSelect.appendChild(option);
+  });
+
+  elements.conceptSelect.value = concepts.some((concept) => concept.conceptId === currentValue)
+    ? currentValue
+    : "";
+}
+
 function partHasInteractiveChoice(part) {
   return part.choices.length > 0 && part.answerKeys.length > 0;
 }
@@ -152,6 +239,7 @@ function shouldShowFeedback(part, response) {
 }
 
 function questionSearchText(question) {
+  const classification = classificationFor(question);
   const partText = question.parts.flatMap((part) => [
     part.label,
     ...part.prompt,
@@ -159,12 +247,14 @@ function questionSearchText(question) {
     ...part.answerDetails,
     ...part.explanation
   ]);
-  return `${question.id} ${question.title} ${question.intro.join(" ")} ${partText.join(" ")}`.toLowerCase();
+  return `${question.id} ${question.title} ${question.intro.join(" ")} ${classification.family} ${classification.module} ${classification.concept} ${(classification.tags || []).join(" ")} ${partText.join(" ")}`.toLowerCase();
 }
 
 function applyFilters() {
   const mode = elements.modeSelect.value;
   const search = elements.searchInput.value.trim().toLowerCase();
+  const family = elements.familySelect.value;
+  const concept = elements.conceptSelect.value;
 
   let questions = [...state.questions];
 
@@ -181,10 +271,39 @@ function applyFilters() {
     questions = questions.filter((question) => questionSearchText(question).includes(search));
   }
 
+  if (family) {
+    questions = questions.filter((question) => classificationFor(question).family === family);
+  }
+
+  if (concept) {
+    questions = questions.filter((question) => classificationFor(question).conceptId === concept);
+  }
+
   state.filtered = questions;
   if (state.index >= state.filtered.length) {
     state.index = 0;
   }
+}
+
+function renderConceptSummary() {
+  const selectedFamily = elements.familySelect.value;
+  const selectedConcept = elements.conceptSelect.value;
+  const totalConcepts = allConcepts(selectedFamily).length;
+  const selectedConceptMeta = allConcepts(selectedFamily).find(
+    (classification) => classification.conceptId === selectedConcept
+  );
+
+  if (selectedConceptMeta) {
+    elements.conceptSummary.textContent = `${state.filtered.length} question${state.filtered.length === 1 ? "" : "s"} in ${selectedConceptMeta.conceptPath}.`;
+    return;
+  }
+
+  if (selectedFamily) {
+    elements.conceptSummary.textContent = `${state.filtered.length} question${state.filtered.length === 1 ? "" : "s"} across ${totalConcepts} concepts in ${selectedFamily}.`;
+    return;
+  }
+
+  elements.conceptSummary.textContent = `${state.questions.length} questions across ${allConcepts().length} finely tagged concepts.`;
 }
 
 function formatAccuracy(value) {
@@ -282,6 +401,7 @@ function renderQuestionList() {
   elements.questionList.innerHTML = "";
 
   state.filtered.forEach((question, idx) => {
+    const classification = classificationFor(question);
     const button = document.createElement("button");
     button.type = "button";
     button.className = `question-list-item${idx === state.index ? " active" : ""}`;
@@ -298,7 +418,7 @@ function renderQuestionList() {
     const title = document.createElement("div");
     title.textContent = truncate(question.title, 64);
     const meta = document.createElement("small");
-    meta.textContent = `${question.parts.length} part${question.parts.length === 1 ? "" : "s"}`;
+    meta.textContent = `${classification.concept} · ${question.parts.length} part${question.parts.length === 1 ? "" : "s"}`;
     text.append(title, meta);
 
     const statusDot = document.createElement("span");
@@ -496,14 +616,17 @@ function renderQuestion() {
   if (!question) {
     elements.currentBadge.textContent = "No questions";
     elements.currentTitle.textContent = "Nothing matches this filter yet.";
+    elements.currentConceptPath.textContent = "";
     elements.progressText.textContent = "0 / 0";
     elements.progressFill.style.width = "0%";
     elements.questionContent.innerHTML = "<p>Try switching the mode or clearing the search.</p>";
     return;
   }
 
+  const classification = classificationFor(question);
   elements.currentBadge.textContent = `Question ${question.id}`;
   elements.currentTitle.textContent = question.title;
+  elements.currentConceptPath.textContent = `${classification.family} · ${classification.module} · ${classification.concept}`;
   elements.progressText.textContent = `${state.index + 1} / ${state.filtered.length}`;
   elements.progressFill.style.width = `${((state.index + 1) / state.filtered.length) * 100}%`;
   elements.revealButton.textContent = state.revealAll ? "Hide All Explanations" : "Reveal All Explanations";
@@ -579,6 +702,7 @@ function renderRecords() {
 
 function render() {
   applyFilters();
+  renderConceptSummary();
   renderAuth();
   renderStats();
   renderQuestionList();
@@ -881,6 +1005,19 @@ elements.searchInput.addEventListener("input", () => {
   render();
 });
 
+elements.familySelect.addEventListener("change", () => {
+  populateConceptOptions();
+  state.index = 0;
+  state.revealAll = false;
+  render();
+});
+
+elements.conceptSelect.addEventListener("change", () => {
+  state.index = 0;
+  state.revealAll = false;
+  render();
+});
+
 elements.jumpButton.addEventListener("click", jumpToQuestion);
 elements.jumpInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter") jumpToQuestion();
@@ -924,6 +1061,8 @@ document.addEventListener("keydown", (event) => {
 });
 
 rebuildRandomOrder();
+populateFamilyOptions();
+populateConceptOptions();
 applyTheme(state.theme);
 render();
 void loadSession();

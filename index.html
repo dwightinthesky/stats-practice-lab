@@ -145,6 +145,20 @@
 
             <label class="field-label" for="search-input">Search title</label>
             <input id="search-input" type="search" placeholder="confidence interval, Poisson..." />
+
+            <label class="field-label" for="family-select">Concept family</label>
+            <select id="family-select">
+              <option value="">All families</option>
+            </select>
+
+            <label class="field-label" for="concept-select">Fine concept</label>
+            <select id="concept-select">
+              <option value="">All concepts</option>
+            </select>
+
+            <p id="concept-summary" class="shortcut-note">
+              Browse the question bank by concept family or by a very specific topic.
+            </p>
           </section>
 
           <section class="panel-block">
@@ -181,6 +195,7 @@
               <div>
                 <p id="current-badge" class="current-badge">Question 1</p>
                 <h2 id="current-title">Loading...</h2>
+                <p id="current-concept-path" class="current-concept-path"></p>
               </div>
               <div class="progress-chip">
                 <span id="progress-text">0 / 0</span>

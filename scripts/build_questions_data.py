@@ -4,6 +4,7 @@ import json
 import re
 from pathlib import Path
 
+from question_taxonomy import classification_for
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "source" / "questions_compiled.md"
@@ -285,6 +286,7 @@ def build_questions() -> list[dict[str, object]]:
                 "title": title.replace("`", ""),
                 "intro": intro,
                 "parts": parts,
+                "classification": classification_for(qid),
             }
         )
 
