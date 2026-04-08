@@ -463,3 +463,21 @@ button,
 #clear-status-button {
   background: var(--paper);
 }
+
+/* ROUND 23 — Radius & border discipline */
+.hero-copy,
+.panel-block,
+.practice-stage,
+.question-card,
+.part-card,
+.auth-card,
+.stat-card {
+  border-radius: 28px;
+}
+
+.choice-button,
+.record-item,
+.question-list-item,
+.feedback-panel {
+  border-radius: 20px;
+}
