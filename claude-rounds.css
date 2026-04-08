@@ -163,3 +163,23 @@ html[data-theme="dark"] .stat-card {
   font-size: 15px;
   font-weight: 500;
 }
+
+/* ROUND 06 — Softer fields */
+input,
+select {
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255, 252, 247, 0.88);
+  border-color: rgba(87, 66, 51, 0.10);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select {
+  background: rgba(43, 36, 30, 0.86);
+  border-color: rgba(238, 225, 211, 0.08);
+}
+
+input::placeholder {
+  color: var(--muted);
+}
