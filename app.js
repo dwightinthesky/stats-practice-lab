@@ -2,6 +2,7 @@ const state = {
   questions: Array.isArray(window.STAT_QUESTIONS) ? window.STAT_QUESTIONS : [],
   filtered: [],
   index: 0,
+  resumeQuestionId: null,
   theme: document.documentElement.dataset.theme === "light" ? "light" : "dark",
   progress: {},
   revealAll: false,
@@ -139,6 +140,8 @@ function clearUserState() {
   state.progress = {};
   state.responses = {};
   state.records = emptyRecords();
+  state.index = 0;
+  state.resumeQuestionId = null;
   state.revealAll = false;
 }
 
@@ -313,6 +316,15 @@ function applyFilters() {
   }
 
   state.filtered = questions;
+  if (state.resumeQuestionId !== null) {
+    const rememberedIndex = state.filtered.findIndex(
+      (question) => question.id === state.resumeQuestionId
+    );
+    if (rememberedIndex >= 0) {
+      state.index = rememberedIndex;
+      state.resumeQuestionId = null;
+    }
+  }
   if (state.index >= state.filtered.length) {
     state.index = 0;
   }
@@ -419,6 +431,35 @@ function toggleTheme() {
   const nextTheme = state.theme === "dark" ? "light" : "dark";
   applyTheme(nextTheme);
   persistTheme(nextTheme);
+}
+
+function lastQuestionStorageKey(user = state.auth.user) {
+  if (!user?.username) return null;
+  return `stats-practice-last-question:${user.username}`;
+}
+
+function loadRememberedQuestionId(user = state.auth.user) {
+  const key = lastQuestionStorageKey(user);
+  if (!key) return null;
+
+  try {
+    const rawValue = localStorage.getItem(key);
+    const questionId = Number(rawValue);
+    return Number.isInteger(questionId) && questionId > 0 ? questionId : null;
+  } catch {
+    return null;
+  }
+}
+
+function rememberQuestionId(questionId, user = state.auth.user) {
+  const key = lastQuestionStorageKey(user);
+  if (!key || !Number.isInteger(questionId) || questionId <= 0) return;
+
+  try {
+    localStorage.setItem(key, String(questionId));
+  } catch {
+    // Ignore persistence failures and keep navigation working in-session.
+  }
 }
 
 function renderStats() {
@@ -696,6 +737,7 @@ function renderQuestion() {
   }
 
   const classification = classificationFor(question);
+  rememberQuestionId(question.id);
   elements.currentBadge.textContent = `Question ${question.id}`;
   elements.currentTitle.innerHTML = "";
   splitLeadParagraphs(question.title).forEach((paragraphText) => {
@@ -793,6 +835,7 @@ function render() {
 
 function applySnapshot(payload) {
   state.auth.user = payload.user || null;
+  state.resumeQuestionId = loadRememberedQuestionId(payload.user);
   state.progress = payload.progress || {};
   state.responses = payload.responses || {};
   state.records = payload.records || emptyRecords();
