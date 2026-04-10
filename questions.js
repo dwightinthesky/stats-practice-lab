@@ -488,19 +488,35 @@ window.STAT_QUESTIONS = [
         "choices": [
           {
             "key": "A",
-            "text": "A Pareto diagram with categories ordered S, MS, LS, A, SS from left to right."
+            "text": "A Pareto diagram with categories ordered S, MS, LS, A, SS from left to right.",
+            "figure": {
+              "src": "assets/generated-figures/q5-part1-a.png",
+              "alt": "Pareto-style bar chart option A for question 5."
+            }
           },
           {
             "key": "B",
-            "text": "A Pareto diagram with categories ordered A, SS, S, MS, LS from left to right."
+            "text": "A Pareto diagram with categories ordered A, SS, S, MS, LS from left to right.",
+            "figure": {
+              "src": "assets/generated-figures/q5-part1-b.png",
+              "alt": "Pareto-style bar chart option B for question 5."
+            }
           },
           {
             "key": "C",
-            "text": "A Pareto diagram with categories ordered LS, S, MS, SS, A from left to right."
+            "text": "A Pareto diagram with categories ordered LS, S, MS, SS, A from left to right.",
+            "figure": {
+              "src": "assets/generated-figures/q5-part1-c.png",
+              "alt": "Pareto-style bar chart option C for question 5."
+            }
           },
           {
             "key": "D",
-            "text": "A Pareto diagram with categories ordered SS, A, LS, MS, S from left to right."
+            "text": "A Pareto diagram with categories ordered SS, A, LS, MS, S from left to right.",
+            "figure": {
+              "src": "assets/generated-figures/q5-part1-d.png",
+              "alt": "Pareto-style bar chart option D for question 5."
+            }
           }
         ],
         "answerKeys": [
@@ -633,19 +649,35 @@ window.STAT_QUESTIONS = [
         "choices": [
           {
             "key": "A",
-            "text": "A dot plot with one dot at 0, 5, 6, 10, 14, 18, 24; two dots at 28 and 37; and three dots at 38."
+            "text": "A dot plot with one dot at 0, 5, 6, 10, 14, 18, 24; two dots at 28 and 37; and three dots at 38.",
+            "figure": {
+              "src": "assets/generated-figures/q6-partc-a.png",
+              "alt": "Dot plot option A for question 6."
+            }
           },
           {
             "key": "B",
-            "text": "A dot plot with one dot at 0, 5, 6, 10, 18, 24, 37; two dots at 14 and 38; and three dots at 28."
+            "text": "A dot plot with one dot at 0, 5, 6, 10, 18, 24, 37; two dots at 14 and 38; and three dots at 28.",
+            "figure": {
+              "src": "assets/generated-figures/q6-partc-b.png",
+              "alt": "Dot plot option B for question 6."
+            }
           },
           {
             "key": "C",
-            "text": "A dot plot with one dot at 0 and 5, two dots at 6 and 14, one dot at 18, two dots at 24, three dots at 28, and one dot at 37 and 38."
+            "text": "A dot plot with one dot at 0 and 5, two dots at 6 and 14, one dot at 18, two dots at 24, three dots at 28, and one dot at 37 and 38.",
+            "figure": {
+              "src": "assets/generated-figures/q6-partc-c.png",
+              "alt": "Dot plot option C for question 6."
+            }
           },
           {
             "key": "D",
-            "text": "A symmetric dot plot centered near 20 with no repeated values."
+            "text": "A symmetric dot plot centered near 20 with no repeated values.",
+            "figure": {
+              "src": "assets/generated-figures/q6-partc-d.png",
+              "alt": "Dot plot option D for question 6."
+            }
           }
         ],
         "answerKeys": [
@@ -675,6 +707,11 @@ window.STAT_QUESTIONS = [
       "conceptPath": "Descriptive statistics / Data displays / Stem-and-leaf plots and dot plots",
       "familyId": "descriptive-statistics",
       "conceptId": "descriptive-statistics-data-displays-stem-and-leaf-plots-and-dot-plots"
+    },
+    "figure": {
+      "src": "assets/generated-figures/q6-stem-leaf.png",
+      "alt": "Stem-and-leaf display for question 6.",
+      "caption": "Stem-and-leaf display"
     }
   },
   {
@@ -801,19 +838,35 @@ window.STAT_QUESTIONS = [
         "choices": [
           {
             "key": "A",
-            "text": "The distribution is skewed to the right."
+            "text": "The distribution is skewed to the right.",
+            "figure": {
+              "src": "assets/generated-figures/q7-partc-a.png",
+              "alt": "Histogram option A, skewed to the right."
+            }
           },
           {
             "key": "B",
-            "text": "The distribution is skewed to the left."
+            "text": "The distribution is skewed to the left.",
+            "figure": {
+              "src": "assets/generated-figures/q7-partc-b.png",
+              "alt": "Histogram option B, skewed to the left."
+            }
           },
           {
             "key": "C",
-            "text": "The distribution is approximately symmetric."
+            "text": "The distribution is approximately symmetric.",
+            "figure": {
+              "src": "assets/generated-figures/q7-partc-c.png",
+              "alt": "Histogram option C, approximately symmetric."
+            }
           },
           {
             "key": "D",
-            "text": "The distribution is approximately uniform."
+            "text": "The distribution is approximately uniform.",
+            "figure": {
+              "src": "assets/generated-figures/q7-partc-d.png",
+              "alt": "Histogram option D, approximately uniform."
+            }
           }
         ],
         "answerKeys": [
@@ -840,6 +893,11 @@ window.STAT_QUESTIONS = [
       "conceptPath": "Descriptive statistics / Center and shape / Mean, median, mode, and skewness",
       "familyId": "descriptive-statistics",
       "conceptId": "descriptive-statistics-center-and-shape-mean-median-mode-and-skewness"
+    },
+    "figure": {
+      "src": "assets/generated-figures/q7-question-histogram.png",
+      "alt": "Histogram of the driving performance index values.",
+      "caption": "Driving performance index histogram"
     }
   },
   {
@@ -1293,19 +1351,35 @@ window.STAT_QUESTIONS = [
         "choices": [
           {
             "key": "A",
-            "text": "A line with slope +1 and y-intercept 6."
+            "text": "A line with slope +1 and y-intercept 6.",
+            "figure": {
+              "src": "assets/generated-figures/q13-parta-a.png",
+              "alt": "Graph option A for y = 6 + x."
+            }
           },
           {
             "key": "B",
-            "text": "A line with slope +1 and y-intercept -6."
+            "text": "A line with slope +1 and y-intercept -6.",
+            "figure": {
+              "src": "assets/generated-figures/q13-parta-b.png",
+              "alt": "Graph option B for y = 6 + x."
+            }
           },
           {
             "key": "C",
-            "text": "A line with slope -3 and y-intercept 6."
+            "text": "A line with slope -3 and y-intercept 6.",
+            "figure": {
+              "src": "assets/generated-figures/q13-parta-c.png",
+              "alt": "Graph option C for y = 6 + x."
+            }
           },
           {
             "key": "D",
-            "text": "A line with slope +3 and y-intercept -6."
+            "text": "A line with slope +3 and y-intercept -6.",
+            "figure": {
+              "src": "assets/generated-figures/q13-parta-d.png",
+              "alt": "Graph option D for y = 6 + x."
+            }
           }
         ],
         "answerKeys": [
@@ -1327,19 +1401,35 @@ window.STAT_QUESTIONS = [
         "choices": [
           {
             "key": "A",
-            "text": "A line with positive slope passing through y = -6."
+            "text": "A line with positive slope passing through y = -6.",
+            "figure": {
+              "src": "assets/generated-figures/q13-partb-a.png",
+              "alt": "Graph option A for y = 6 - 3x."
+            }
           },
           {
             "key": "B",
-            "text": "A line with slope -3 crossing the y-axis at 6."
+            "text": "A line with slope -3 crossing the y-axis at 6.",
+            "figure": {
+              "src": "assets/generated-figures/q13-partb-b.png",
+              "alt": "Graph option B for y = 6 - 3x."
+            }
           },
           {
             "key": "C",
-            "text": "A line with slope -1 passing through the origin."
+            "text": "A line with slope -1 passing through the origin.",
+            "figure": {
+              "src": "assets/generated-figures/q13-partb-c.png",
+              "alt": "Graph option C for y = 6 - 3x."
+            }
           },
           {
             "key": "D",
-            "text": "A line with slope +3 crossing the y-axis at 6."
+            "text": "A line with slope +3 crossing the y-axis at 6.",
+            "figure": {
+              "src": "assets/generated-figures/q13-partb-d.png",
+              "alt": "Graph option D for y = 6 - 3x."
+            }
           }
         ],
         "answerKeys": [
@@ -1361,19 +1451,35 @@ window.STAT_QUESTIONS = [
         "choices": [
           {
             "key": "A",
-            "text": "A line with positive slope and y-intercept -5."
+            "text": "A line with positive slope and y-intercept -5.",
+            "figure": {
+              "src": "assets/generated-figures/q13-partc-a.png",
+              "alt": "Graph option A for y = -5x."
+            }
           },
           {
             "key": "B",
-            "text": "A steep negative line passing through the origin."
+            "text": "A steep negative line passing through the origin.",
+            "figure": {
+              "src": "assets/generated-figures/q13-partc-b.png",
+              "alt": "Graph option B for y = -5x."
+            }
           },
           {
             "key": "C",
-            "text": "A moderate negative line crossing the y-axis above the origin."
+            "text": "A moderate negative line crossing the y-axis above the origin.",
+            "figure": {
+              "src": "assets/generated-figures/q13-partc-c.png",
+              "alt": "Graph option C for y = -5x."
+            }
           },
           {
             "key": "D",
-            "text": "A steep positive line passing through the origin."
+            "text": "A steep positive line passing through the origin.",
+            "figure": {
+              "src": "assets/generated-figures/q13-partc-d.png",
+              "alt": "Graph option D for y = -5x."
+            }
           }
         ],
         "answerKeys": [
@@ -1479,19 +1585,35 @@ window.STAT_QUESTIONS = [
         "choices": [
           {
             "key": "A",
-            "text": "A scatterplot with only positive x-values and no high point near (8, 9)."
+            "text": "A scatterplot with only positive x-values and no high point near (8, 9).",
+            "figure": {
+              "src": "assets/generated-figures/q15-parta-a.png",
+              "alt": "Scatterplot option A for question 15."
+            }
           },
           {
             "key": "B",
-            "text": "A scatterplot that places the only y = 0 point near x = 8."
+            "text": "A scatterplot that places the only y = 0 point near x = 8.",
+            "figure": {
+              "src": "assets/generated-figures/q15-parta-b.png",
+              "alt": "Scatterplot option B for question 15."
+            }
           },
           {
             "key": "C",
-            "text": "A scatterplot with a negative trend and no repeated x-values."
+            "text": "A scatterplot with a negative trend and no repeated x-values.",
+            "figure": {
+              "src": "assets/generated-figures/q15-parta-c.png",
+              "alt": "Scatterplot option C for question 15."
+            }
           },
           {
             "key": "D",
-            "text": "A scatterplot that includes (-2, 0), (2, 1), two points at x = 4, two points at x = 5, and a high point at (8, 9)."
+            "text": "A scatterplot that includes (-2, 0), (2, 1), two points at x = 4, two points at x = 5, and a high point at (8, 9).",
+            "figure": {
+              "src": "assets/generated-figures/q15-parta-d.png",
+              "alt": "Scatterplot option D for question 15."
+            }
           }
         ],
         "answerKeys": [
@@ -1553,19 +1675,35 @@ window.STAT_QUESTIONS = [
         "choices": [
           {
             "key": "A",
-            "text": "An upward-sloping least squares line, but the points vary widely around it, so the fit is poor."
+            "text": "An upward-sloping least squares line, but the points vary widely around it, so the fit is poor.",
+            "figure": {
+              "src": "assets/generated-figures/q15-partc-a.png",
+              "alt": "Least-squares-line option A for question 15."
+            }
           },
           {
             "key": "B",
-            "text": "A downward-sloping least squares line that fits the data quite well."
+            "text": "A downward-sloping least squares line that fits the data quite well.",
+            "figure": {
+              "src": "assets/generated-figures/q15-partc-b.png",
+              "alt": "Least-squares-line option B for question 15."
+            }
           },
           {
             "key": "C",
-            "text": "An upward-sloping least squares line, and the variation of the data points around the line is not very large."
+            "text": "An upward-sloping least squares line, and the variation of the data points around the line is not very large.",
+            "figure": {
+              "src": "assets/generated-figures/q15-partc-c.png",
+              "alt": "Least-squares-line option C for question 15."
+            }
           },
           {
             "key": "D",
-            "text": "A horizontal least squares line because the data show no linear pattern."
+            "text": "A horizontal least squares line because the data show no linear pattern.",
+            "figure": {
+              "src": "assets/generated-figures/q15-partc-d.png",
+              "alt": "Least-squares-line option D for question 15."
+            }
           }
         ],
         "answerKeys": [
@@ -1972,6 +2110,11 @@ window.STAT_QUESTIONS = [
       "conceptPath": "Regression / Scatterplot association / Linear trend direction and slope sign",
       "familyId": "regression",
       "conceptId": "regression-scatterplot-association-linear-trend-direction-and-slope-sign"
+    },
+    "figure": {
+      "src": "assets/generated-figures/q18-scatterplots.png",
+      "alt": "Three scatterplots comparing payoff with cooperation use, defection use, and punishment use.",
+      "caption": "Scatterplots used in question 18"
     }
   },
   {
@@ -2219,19 +2362,35 @@ window.STAT_QUESTIONS = [
         "choices": [
           {
             "key": "A",
-            "text": "A Venn diagram with two disjoint circles for A and B."
+            "text": "A Venn diagram with two disjoint circles for A and B.",
+            "figure": {
+              "src": "assets/generated-figures/q21-parta-a.png",
+              "alt": "Venn diagram option A for question 21."
+            }
           },
           {
             "key": "B",
-            "text": "A Venn diagram with A completely inside B."
+            "text": "A Venn diagram with A completely inside B.",
+            "figure": {
+              "src": "assets/generated-figures/q21-parta-b.png",
+              "alt": "Venn diagram option B for question 21."
+            }
           },
           {
             "key": "C",
-            "text": "A Venn diagram with overlapping circles for A and B."
+            "text": "A Venn diagram with overlapping circles for A and B.",
+            "figure": {
+              "src": "assets/generated-figures/q21-parta-c.png",
+              "alt": "Venn diagram option C for question 21."
+            }
           },
           {
             "key": "D",
-            "text": "A Venn diagram with B completely inside A."
+            "text": "A Venn diagram with B completely inside A.",
+            "figure": {
+              "src": "assets/generated-figures/q21-parta-d.png",
+              "alt": "Venn diagram option D for question 21."
+            }
           }
         ],
         "answerKeys": [
@@ -2731,6 +2890,11 @@ window.STAT_QUESTIONS = [
       "conceptPath": "Random variables / Discrete distributions / Read probabilities from a histogram",
       "familyId": "random-variables",
       "conceptId": "random-variables-discrete-distributions-read-probabilities-from-a-histogram"
+    },
+    "figure": {
+      "src": "assets/generated-figures/q27-histogram.png",
+      "alt": "Histogram showing the probability for x = 22, 23, 24, 25, and 26.",
+      "caption": "Discrete probability histogram"
     }
   },
   {
@@ -2949,11 +3113,19 @@ window.STAT_QUESTIONS = [
           },
           {
             "key": "C",
-            "text": "A stem-and-leaf display that is roughly symmetric and mound-shaped."
+            "text": "A stem-and-leaf display that is roughly symmetric and mound-shaped.",
+            "figure": {
+              "src": "assets/generated-figures/q31-choice-c.png",
+              "alt": "Stem-and-leaf display option C for question 31."
+            }
           },
           {
             "key": "D",
-            "text": "A normal probability plot with points that are approximately linear."
+            "text": "A normal probability plot with points that are approximately linear.",
+            "figure": {
+              "src": "assets/generated-figures/q31-choice-d.png",
+              "alt": "Normal probability plot option D for question 31."
+            }
           },
           ""
         ],
@@ -3336,6 +3508,11 @@ window.STAT_QUESTIONS = [
       "conceptPath": "Sampling distributions / Central Limit Theorem / How sample size changes the shape of the x-bar distribution",
       "familyId": "sampling-distributions",
       "conceptId": "sampling-distributions-central-limit-theorem-how-sample-size-changes-the-shape-of-the-x-bar-distribution"
+    },
+    "figure": {
+      "src": "assets/generated-figures/q36-sampling-histograms.png",
+      "alt": "Stacked relative-frequency histograms for sample means at multiple sample sizes.",
+      "caption": "Sampling-distribution histograms"
     }
   },
   {

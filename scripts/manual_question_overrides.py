@@ -5,6 +5,13 @@ def choice(key: str, text: str) -> dict[str, str]:
     return {"key": key, "text": text}
 
 
+def figure(src: str, alt: str, caption: str | None = None) -> dict[str, str]:
+    payload = {"src": f"assets/generated-figures/{src}", "alt": alt}
+    if caption:
+        payload["caption"] = caption
+    return payload
+
+
 PART_OVERRIDES: dict[int, dict[str, dict[str, object]]] = {
     5: {
         "Part 1": {
@@ -537,6 +544,91 @@ QUESTION_OVERRIDES: dict[int, dict[str, object]] = {
 }
 
 
+QUESTION_FIGURES: dict[int, dict[str, str]] = {
+    6: figure("q6-stem-leaf.png", "Stem-and-leaf display for question 6.", "Stem-and-leaf display"),
+    7: figure("q7-question-histogram.png", "Histogram of the driving performance index values.", "Driving performance index histogram"),
+    18: figure("q18-scatterplots.png", "Three scatterplots comparing payoff with cooperation use, defection use, and punishment use.", "Scatterplots used in question 18"),
+    27: figure("q27-histogram.png", "Histogram showing the probability for x = 22, 23, 24, 25, and 26.", "Discrete probability histogram"),
+    36: figure("q36-sampling-histograms.png", "Stacked relative-frequency histograms for sample means at multiple sample sizes.", "Sampling-distribution histograms"),
+}
+
+
+CHOICE_FIGURES: dict[int, dict[str, dict[str, dict[str, str]]]] = {
+    5: {
+        "Part 1": {
+            "A": figure("q5-part1-a.png", "Pareto-style bar chart option A for question 5."),
+            "B": figure("q5-part1-b.png", "Pareto-style bar chart option B for question 5."),
+            "C": figure("q5-part1-c.png", "Pareto-style bar chart option C for question 5."),
+            "D": figure("q5-part1-d.png", "Pareto-style bar chart option D for question 5."),
+        }
+    },
+    6: {
+        "Part c": {
+            "A": figure("q6-partc-a.png", "Dot plot option A for question 6."),
+            "B": figure("q6-partc-b.png", "Dot plot option B for question 6."),
+            "C": figure("q6-partc-c.png", "Dot plot option C for question 6."),
+            "D": figure("q6-partc-d.png", "Dot plot option D for question 6."),
+        }
+    },
+    7: {
+        "Part c": {
+            "A": figure("q7-partc-a.png", "Histogram option A, skewed to the right."),
+            "B": figure("q7-partc-b.png", "Histogram option B, skewed to the left."),
+            "C": figure("q7-partc-c.png", "Histogram option C, approximately symmetric."),
+            "D": figure("q7-partc-d.png", "Histogram option D, approximately uniform."),
+        }
+    },
+    13: {
+        "Part a": {
+            "A": figure("q13-parta-a.png", "Graph option A for y = 6 + x."),
+            "B": figure("q13-parta-b.png", "Graph option B for y = 6 + x."),
+            "C": figure("q13-parta-c.png", "Graph option C for y = 6 + x."),
+            "D": figure("q13-parta-d.png", "Graph option D for y = 6 + x."),
+        },
+        "Part b": {
+            "A": figure("q13-partb-a.png", "Graph option A for y = 6 - 3x."),
+            "B": figure("q13-partb-b.png", "Graph option B for y = 6 - 3x."),
+            "C": figure("q13-partb-c.png", "Graph option C for y = 6 - 3x."),
+            "D": figure("q13-partb-d.png", "Graph option D for y = 6 - 3x."),
+        },
+        "Part c": {
+            "A": figure("q13-partc-a.png", "Graph option A for y = -5x."),
+            "B": figure("q13-partc-b.png", "Graph option B for y = -5x."),
+            "C": figure("q13-partc-c.png", "Graph option C for y = -5x."),
+            "D": figure("q13-partc-d.png", "Graph option D for y = -5x."),
+        },
+    },
+    15: {
+        "Part a": {
+            "A": figure("q15-parta-a.png", "Scatterplot option A for question 15."),
+            "B": figure("q15-parta-b.png", "Scatterplot option B for question 15."),
+            "C": figure("q15-parta-c.png", "Scatterplot option C for question 15."),
+            "D": figure("q15-parta-d.png", "Scatterplot option D for question 15."),
+        },
+        "Part c": {
+            "A": figure("q15-partc-a.png", "Least-squares-line option A for question 15."),
+            "B": figure("q15-partc-b.png", "Least-squares-line option B for question 15."),
+            "C": figure("q15-partc-c.png", "Least-squares-line option C for question 15."),
+            "D": figure("q15-partc-d.png", "Least-squares-line option D for question 15."),
+        },
+    },
+    21: {
+        "Part a": {
+            "A": figure("q21-parta-a.png", "Venn diagram option A for question 21."),
+            "B": figure("q21-parta-b.png", "Venn diagram option B for question 21."),
+            "C": figure("q21-parta-c.png", "Venn diagram option C for question 21."),
+            "D": figure("q21-parta-d.png", "Venn diagram option D for question 21."),
+        }
+    },
+    31: {
+        "Question": {
+            "C": figure("q31-choice-c.png", "Stem-and-leaf display option C for question 31."),
+            "D": figure("q31-choice-d.png", "Normal probability plot option D for question 31."),
+        }
+    },
+}
+
+
 def apply_manual_overrides(questions: list[dict[str, object]]) -> list[dict[str, object]]:
     by_id = {question["id"]: question for question in questions}
 
@@ -558,5 +650,29 @@ def apply_manual_overrides(questions: list[dict[str, object]]) -> list[dict[str,
                 continue
             for field, value in updates.items():
                 part[field] = value
+
+    for qid, payload in QUESTION_FIGURES.items():
+        question = by_id.get(qid)
+        if question:
+            question["figure"] = payload
+
+    for qid, part_payload in CHOICE_FIGURES.items():
+        question = by_id.get(qid)
+        if not question:
+            continue
+        parts_by_label = {part["label"]: part for part in question["parts"]}
+        for label, choice_payload in part_payload.items():
+            part = parts_by_label.get(label)
+            if not part:
+                continue
+            by_key = {
+                option["key"]: option
+                for option in part.get("choices", [])
+                if isinstance(option, dict) and "key" in option
+            }
+            for key, payload in choice_payload.items():
+                option = by_key.get(key)
+                if option:
+                    option["figure"] = payload
 
     return questions

@@ -479,6 +479,28 @@ function renderLines(container, lines, extraClass = "") {
   });
 }
 
+function renderFigure(figureData, extraClass = "") {
+  if (!figureData?.src) return null;
+
+  const figure = document.createElement("figure");
+  figure.className = `question-figure${extraClass ? ` ${extraClass}` : ""}`;
+
+  const image = document.createElement("img");
+  image.src = figureData.src;
+  image.alt = figureData.alt || "";
+  image.loading = "lazy";
+  figure.appendChild(image);
+
+  if (figureData.caption) {
+    const caption = document.createElement("figcaption");
+    caption.className = "figure-caption";
+    caption.textContent = figureData.caption;
+    figure.appendChild(caption);
+  }
+
+  return figure;
+}
+
 function dedupeLines(lines) {
   const compact = [];
   for (const line of lines) {
@@ -556,6 +578,7 @@ function renderChoiceButtons(question, part, response) {
     if (selected) button.classList.add("selected");
     if (showFeedback && correct) button.classList.add("correct");
     if (showFeedback && wrongPick) button.classList.add("incorrect");
+    if (choice.figure) button.classList.add("has-figure");
 
     if (isMultiSelect(part)) {
       button.addEventListener("click", () => toggleMultiChoice(question.id, part.id, choice.key));
@@ -569,11 +592,20 @@ function renderChoiceButtons(question, part, response) {
     key.className = "choice-key";
     key.textContent = choice.key;
 
+    const body = document.createElement("div");
+    body.className = "choice-body";
+
+    if (choice.figure) {
+      const choiceFigure = renderFigure(choice.figure, "choice-figure");
+      if (choiceFigure) body.appendChild(choiceFigure);
+    }
+
     const text = document.createElement("span");
     text.className = "choice-text";
     text.textContent = choice.text;
 
-    button.append(key, text);
+    body.appendChild(text);
+    button.append(key, body);
     wrapper.appendChild(button);
   });
 
@@ -594,6 +626,10 @@ function renderPart(question, part) {
   if (part.prompt.length) {
     const prompt = document.createElement("div");
     prompt.className = "part-prompt";
+    if (part.figure) {
+      const partFigure = renderFigure(part.figure, "part-figure");
+      if (partFigure) prompt.appendChild(partFigure);
+    }
     renderLines(prompt, part.prompt);
     card.appendChild(prompt);
   }
@@ -676,6 +712,10 @@ function renderQuestion() {
 
   const intro = document.createElement("div");
   intro.className = "question-intro";
+  if (question.figure) {
+    const questionFigure = renderFigure(question.figure, "question-figure-block");
+    if (questionFigure) intro.appendChild(questionFigure);
+  }
   renderLines(intro, question.intro);
   elements.questionContent.appendChild(intro);
 

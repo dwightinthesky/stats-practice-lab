@@ -1011,6 +1011,35 @@ html[data-theme="dark"] .question-card {
   padding: 0;
 }
 
+.question-figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper-strong) 92%, transparent 8%);
+}
+
+.question-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.question-figure.question-figure-block {
+  margin-bottom: 4px;
+}
+
+.question-figure.choice-figure {
+  border-radius: 14px;
+}
+
+.figure-caption {
+  padding: 10px 14px 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
 .part-stack {
   gap: 18px;
 }
@@ -1030,6 +1059,10 @@ html[data-theme="dark"] .question-card {
 
 .part-prompt {
   gap: 9px;
+}
+
+.part-figure {
+  margin-bottom: 6px;
 }
 
 .choice-grid {
@@ -1068,6 +1101,12 @@ html[data-theme="dark"] .choice-button {
   border-color: rgba(196, 103, 69, 0.28);
 }
 
+.choice-body {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
 .choice-key {
   width: 30px;
   height: 30px;
@@ -1086,6 +1125,14 @@ html[data-theme="dark"] .choice-button {
   font-weight: 500;
   line-height: 1.7;
   color: var(--ink);
+}
+
+.choice-button.has-figure {
+  align-items: start;
+}
+
+.choice-button.has-figure .choice-text {
+  padding-top: 0;
 }
 
 .feedback-panel {

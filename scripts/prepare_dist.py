@@ -14,6 +14,7 @@ FILES = (
     "questions.js",
     "_worker.js",
 )
+DIRS = ("assets",)
 
 
 def main() -> None:
@@ -23,6 +24,11 @@ def main() -> None:
 
     for name in FILES:
         shutil.copy2(ROOT / name, DIST / name)
+
+    for name in DIRS:
+        source = ROOT / name
+        if source.exists():
+            shutil.copytree(source, DIST / name)
 
     print(f"Prepared deployable site in {DIST}")
 
